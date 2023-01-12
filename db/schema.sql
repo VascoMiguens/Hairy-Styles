@@ -1,0 +1,6 @@
+-- DROP DATABASE
+DROP DATABASE IF EXISTS hairy_styles_db;
+
+-- CREATE DATABASE
+CREATE DATABASE hairy_styles_db;
+
