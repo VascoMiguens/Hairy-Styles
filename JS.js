@@ -16,6 +16,19 @@ form.addEventListener("submit", (event) => {
     const password = form.password.value;
 });
 
+    
+
+// The button element
+    function openForm() {
+  document.getElementById("myForm").style.display = "block";
+}
+
+function closeForm() {
+  document.getElementById("myForm").style.display = "none";
+}
+
+
+
 // Create a new map
 const map = new google.maps.Map(mapContainer, mapOptions);
 const mapContainer = document.getElementById('map');
@@ -30,5 +43,3 @@ const mapOptions = {
   center: { }, // you can put any location inside { } 
   zoom: 10,
 };
-
-
