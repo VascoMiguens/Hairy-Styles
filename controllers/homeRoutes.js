@@ -6,6 +6,7 @@ router.get("/", async (req, res) => {
   try {
     res.render("homepage", {
       logged_in: req.session.logged_in,
+      google_api_key: process.env.GOOGLE_API_KEY
     });
   } catch (err) {
     res.status(500).json(err);
