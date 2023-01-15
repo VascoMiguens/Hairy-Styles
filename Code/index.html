@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>My hairstyle</title>
+  <link rel="stylesheet" type="text/css" href="Style.css">
+  <script src="https://maps.googleapis.com/maps/api/js?key=YOUR_API_KEY"></script>
+
+</head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<body>
+  <header class="head">
+      <nav class="nav">
+        <ul>
+          <li class="nav-elements"><a href="signin.html">SIGN IN</a></li>
+          <li class="nav-elements"><a href="signin.html">SUBMIT YOUR CUT</a></li>
+          <li class="nav-elements"><a href="signin.html">CONTACT</a></li>
+        </ul>
+      </nav>
+  </header>
+  <div align="center" class="logo_container">
+      <div class="logo">
+        <img src="lo.png" alt="">
+      </div>
+  </div>
+  <div id="map" style="width: 600px; height: 400px;"></div>
+  <nav>
+    <form1>
+      <label for="haircut-search">Search for a haircut:</label>
+      <input type="text" id="haircut-search" placeholder="e.g. shag haircut, bixie, wolf cut">
+      <button type="submit">Search</button>
+    </form1>
+    
+
+  </nav>
+  <main id="results">
+    <!--Results will be displayed here-->
+  </main>
+  
+  <footer>
+    <form1 id="login-form">
+  <label for="email">Email:</label>
+  <input type="email" id="email" name="email">
+  <label for="password">Password:</label>
+  <input type="password" id="password" name="password">
+  <button type="submit">Login</button>
+</form1>
+<button class="open-button" onclick="openForm()">login</button>
+
+<div class="form signup">
+  <div class="form-header">
+    <div class="show-signup">Sign Up</div>
+    <div class="show-signin">Sign In</div>
+    <div class="show-reset">Reset</div>
+  </div>
+  <div class="arrow"></div>
+  <div class="form-elements">
+    <div class="form-element">
+      <input type="text" placeholder="Username">
+    </div>
+    <div class="form-element">
+      <input type="password" placeholder="Password">
+    </div>
+    <div class="form-element">
+      <input type="password" placeholder="Confirm password">
+    </div>
+    <div class="form-element">
+      <button id="submit-btn">Sign Up</button>
+    </div>
+  </div>
+</div>
+
+<div class="form-popup" id="myForm">
+  <form1 action="/action_page.php" class="form-container">
+    <h1>Login</h1>
+
+    <label for="email"><b>Email</b></label>
+    <input type="text" placeholder="Enter Email" name="email" required>
+
+    <label for="psw"><b>Password</b></label>
+    <input type="password" placeholder="Enter Password" name="psw" required>
+
+    <button type="submit" class="btn">Login</button>
+    <button type="button" class="btn cancel" onclick="closeForm()">Close</button>
+  </form1>
+</div>
+        <div style="width: 800px; margin: 0px auto 0xp auto;">
+    <table>
+        <tr>
+            <td width="60%" valign="top">
+            </td>
+            <td width="40%" valign="top">  
+
+    
+        <!--<p>Copyright &copy; 2022, My hairstyle</p>-->
+  </footer>
+  <script src="script.js"></script>
+</body>
+</html>
+
