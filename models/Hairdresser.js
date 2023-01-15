@@ -20,17 +20,28 @@ Hairdresser.init(
       type: DataTypes.STRING,
       allowNull: false,
     },
-    category_id: {
+    location:{
+      type: DataTypes.STRING,
+      allowNull: false,
+    },
+    styletag_id: {
       type: DataTypes.INTEGER,
       references: {
-        model: "category",
+        model: "tag",
         key: "id",
       },
+    },
+    post_id: {
+      type: DataTypes.INTEGER,
+      references: {
+        model: 'post',
+        key: 'id',
+      }
     },
   },
   {
     sequelize,
-    timestamps: false,
+    timestamps: true,
     freezeTableName: true,
     underscored: true,
     modelName: "hairdresser",

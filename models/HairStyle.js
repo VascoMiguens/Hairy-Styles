@@ -1,10 +1,10 @@
 const { Model, DataTypes } = require("sequelize");
 
-const sequelize = require("../config/connection");
+const sequelize = require("../config/connection.js");
 
-class ProductTag extends Model {}
+class HairStyle extends Model {}
 
-ProductTag.init(
+HairStyle.init(
   {
     // define columns
     id: {
@@ -13,6 +13,9 @@ ProductTag.init(
       primaryKey: true,
       autoIncrement: true,
     },
+    hairstyle_name: {
+      type: DataTypes.STRING,
+    },
     hairdresser_id: {
       type: DataTypes.INTEGER,
       references: {
@@ -20,21 +23,21 @@ ProductTag.init(
         key: "id",
       },
     },
-    tag_id: {
+    post_id: {
       type: DataTypes.INTEGER,
       references: {
-        model: "tag",
-        key: "id",
-      },
+        model: 'post',
+        key: 'id',
+      }
     },
   },
   {
     sequelize,
-    timestamps: false,
+    timestamps: true,
     freezeTableName: true,
     underscored: true,
-    modelName: "product_tag",
+    modelName: "hairstyle",
   }
 );
 
-module.exports = ProductTag;
+module.exports = HairStyle;

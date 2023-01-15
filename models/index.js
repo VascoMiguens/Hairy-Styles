@@ -1,56 +1,64 @@
 // import models
 const Hairdresser = require("./Hairdresser");
-const Category = require("./Category");
-const Tag = require("./Tag");
-const ProductTag = require("./ProductTag");
-const Image = require("./Image");
+const Post = require("./Post");
+const HairStyle = require("./HairStyle");
+const Comment = require("./Comment");
+const User = require("./User");
+const StyleTag = require("./StyleTag")
 
-Image.belongsTo(Hairdresser, {
-  foreignKey: "hairdresser_id",
-});
-
-Hairdresser.hasMany(Image, {
-  foreignKey: "hairdresser_id",
+User.hasMany(Post, {
+  foreignKey: "post_id",
   onDelete: "CASCADE",
 });
 
-// Hairdresser belongsTo Category
-Hairdresser.belongsTo(Category, {
-  foreignKey: "category_id",
+Post.belongsTo(User, {
+  foreignKey: "user_id",
 });
-// Categories have many Hairdressers
-Category.hasMany(Hairdresser, {
-  foreignKey: "category_id",
-  //When we delete a Category, make sure to also delete the associated Hairdresser
+
+Post.belongsTo(Hairdresser, {
+  foreignKey: "hairdresser_id",
+});
+
+Hairdresser.hasMany(Post, {
+  foreignKey: "post_id",
+});
+
+Post.hasMany(Comment, {
+  foreignKey: "comment_id",
   onDelete: "CASCADE",
 });
-// Hairdresser belongToMany Tags (through ProductTag)
-Hairdresser.belongsToMany(Tag, {
-  //Associate Tag with Product through ProductTag
-  //Define the third table needed to store the foreign keys
+
+Comment.belongsTo(Post, {
+  foreignKey: "post_id",
+  onDelete: "CASCADE",
+});
+
+Hairdresser.belongsToMany(HairStyle, {
+
   through: {
-    model: ProductTag,
+    model: StyleTag,
     unique: false,
   },
   //Alias for when data is retrieved
-  as: "Product_Tag",
+  as: "salon_tag",
 });
-// Tags belongToMany Products (through ProductTag)
-Tag.belongsToMany(Hairdresser, {
-  //Associate Product with Tag through ProductTag
-  //Define the third table needed to store the foreign keys
+
+HairStyle.belongsToMany(Hairdresser, {
+
   through: {
-    model: ProductTag,
+    model: StyleTag,
     unique: false,
   },
   //Alias for when data is retrieved
-  as: "Tag_Product",
+  as: "style_tag",
 });
+
 
 module.exports = {
+  Comment,
   Hairdresser,
-  Category,
-  Tag,
-  ProductTag,
-  Image,
+  HairStyle,
+  StyleTag,
+  Post,
+  User
 };
