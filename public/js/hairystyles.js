@@ -35,24 +35,8 @@ function initHomepage() {
         console.log('Searching for hairstyles matching: ', searchText);
         // TODO fetch /api/search?query=xxx
 
-        // Option A - List of hairdressers and associated hairstyles
-        /*
-          Sequelize example:
-
-          Hairdresser.findAll(
-            include: [{
-                model: HairStyle,
-                include: [{
-                    model: StyleTag
-                    where: {
-                        name: 'pixie'
-                    }
-                }]
-            }]
-          )
-          
-        */
-        var mockSearchResultsA = [
+        // List of hairdressers where hairstyle has styletag of pixie
+        var mockSearchResults = [
             {
                 id: 1,
                 hairdresser_name: 'Nashwhite',
@@ -83,65 +67,11 @@ function initHomepage() {
                 ]
             }
         ];
-
-        // Option B - List of hairstyles and associated hairdresser
-        /*
-          Sequelize example:
-
-          HairStyle.findAll(
-            include: [{
-                model: StyleTag,
-                where: {
-                    name: 'pixie'
-                }
-            }]
-          )
-          
-        */
-        var mockSearchResultsB = [
-            {
-                id: 1,
-                image_name: 'my-pixie-hairstyle-from-nashwhite.jpg',
-                hairdresser: {
-                    id: 1,
-                    hairdresser_name: 'Nashwhite',
-                    location: '(52.2852, 1.52)'
-                },
-                style_tags: ['pixie'],
-            },
-            {
-                id: 2,
-                image_name: 'my-pixie-hairstyle-from-indigo.jpg',
-                hairdresser: {
-                    id: 2,
-                    hairdresser_name: 'Indigo Hair Ltd',
-                    location: '(52.2852, 1.52)'
-                },
-                style_tags: ['pixie'],
-            },
-            {
-                image_name: 'my-pixie-lob-hairstyle-from-indigo.jpg',
-                hairdresser: {
-                    id: 2,
-                    hairdresser_name: 'Indigo Hair Ltd',
-                    location: '(52.2852, 1.52)'
-                },
-                style_tags: ['pixie', 'lob'],
-            }
-        ];
-
         // Loop over dataset
-        for(var i=0; i<mockSearchResultsA.length; i++) {
-            var result = mockSearchResultsA[i];
-            console.log(`Option A - Result ${i+1} - ${result.hairdresser_name} - ${result.location}`);
+        for(var i=0; i<mockSearchResults.length; i++) {
+            var result = mockSearchResults[i];
+            console.log(`${i+1} - ${result.hairdresser_name} - ${result.location}`);
         }
-
-        for(var i=0; i<mockSearchResultsB.length; i++) {
-            var result = mockSearchResultsB[i];
-            console.log(`Option B - Result ${i+1} - ${result.hairdresser.hairdresser_name} - ${result.hairdresser.location}`);
-        }
-    }
-
     searchButtonElement.addEventListener('click', searchHairStyles);
 }
 
