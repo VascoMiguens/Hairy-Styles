@@ -1,0 +1,27 @@
+[
+  {
+    "name": "Jane Smith",
+    "email": "jane.smith@email.com",
+    "password": "plaintextpassword"
+  },
+  {
+    "name": "John Doe",
+    "email": "john.doe@email.com",
+    "password": "plaintextpassword2"
+  },
+  {
+    "name": "Bob Smith",
+    "email": "bob.smith@email.com",
+    "password": "plaintextpassword3"
+  },
+  {
+    "name": "Brian Wilson",
+    "email": "brian.wilson@email.com",
+    "password": "plaintextpassword4"
+  },
+  {
+    "name": "David Moore",
+    "email": "david.moore@email.com",
+    "password": "plaintextpassword5"
+  }
+]

@@ -1,6 +1,6 @@
-const { Model, DataTypes } = require('sequelize');
+const { Model, DataTypes } = require("sequelize");
 
-const sequelize = require('../config/connection');
+const sequelize = require("../config/connection");
 
 class StyleTag extends Model {}
 
@@ -10,21 +10,21 @@ StyleTag.init(
       type: DataTypes.INTEGER,
       allowNull: false,
       primaryKey: true,
-      autoIncrement: true
+      autoIncrement: true,
     },
     hairdresser_id: {
       type: DataTypes.INTEGER,
       references: {
-        model: 'hairdresser',
-        key: 'id',
-      }
+        model: "hairdresser",
+        key: "id",
+      },
     },
     hairstyle_id: {
       type: DataTypes.INTEGER,
       references: {
-        model: 'hairstyle',
-        key: 'id',
-      }
+        model: "hairstyle",
+        key: "id",
+      },
     },
   },
   {
@@ -32,7 +32,7 @@ StyleTag.init(
     timestamps: false,
     freezeTableName: true,
     underscored: true,
-    modelName: 'style_tag',
+    modelName: "style_tag",
   }
 );
 

@@ -4,7 +4,7 @@ const Post = require("./Post");
 const HairStyle = require("./HairStyle");
 const Comment = require("./Comment");
 const User = require("./User");
-const StyleTag = require("./StyleTag")
+const StyleTag = require("./StyleTag");
 
 User.hasMany(Post, {
   foreignKey: "post_id",
@@ -34,7 +34,6 @@ Comment.belongsTo(Post, {
 });
 
 Hairdresser.belongsToMany(HairStyle, {
-
   through: {
     model: StyleTag,
     unique: false,
@@ -44,7 +43,6 @@ Hairdresser.belongsToMany(HairStyle, {
 });
 
 HairStyle.belongsToMany(Hairdresser, {
-
   through: {
     model: StyleTag,
     unique: false,
@@ -53,12 +51,11 @@ HairStyle.belongsToMany(Hairdresser, {
   as: "style_tags",
 });
 
-
 module.exports = {
   Comment,
   Hairdresser,
   HairStyle,
   StyleTag,
   Post,
-  User
+  User,
 };
