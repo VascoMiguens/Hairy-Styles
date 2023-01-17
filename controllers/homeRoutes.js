@@ -4,6 +4,7 @@ const withAuth = require("../utils/auth");
 
 router.get("/", async (req, res) => {
   try {
+<<<<<<< HEAD
     const newData = await Post.findAll({
       include: [
         {
@@ -21,6 +22,15 @@ router.get("/", async (req, res) => {
       posts,
       logged_in: req.session.logged_in,
       google_api_key: process.env.GOOGLE_API_KEY,
+=======
+    const newData = await Post.findAll({});
+
+    const posts = newData.map((post) => post.get({ plain: true })); 
+    res.render("homepage", {
+      posts,
+      logged_in: req.session.logged_in,
+      google_api_key: process.env.GOOGLE_API_KEY
+>>>>>>> c0a38c73a78ccf30964443a82a577fb15831752e
     });
   } catch (err) {
     res.status(500).json(err);
