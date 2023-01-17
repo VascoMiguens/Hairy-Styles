@@ -1,0 +1,29 @@
+<section id="upload">
+    <h3>Upload Style</h3>
+
+    <p>
+        Example hairdressers in Leamington Spa: Toni & Guy, Geiko, Indigo Hair, The Spa
+    </p>
+
+    <label for="search">Search for a hairdresser</label>
+    <input type="text" name="search" id="search" placeholder="Enter a hairdresser or salon name" />
+    <button id="searchButton">Search hairdresser</button>
+
+    <!-- Google map -->
+    <div id="map"></div>
+
+    <form action="/upload" method="POST" enctype="multipart/form-data">
+        <input type="file" name="sampleFile" accpet="image/*"/>
+
+        <label for="tags">Tags</label>
+        <textarea name="tags" id="tags" placeholder="#pixie, #bob"></textarea>
+
+        <!-- Hairdresser data populated from Google Places API result -->
+        <input type="hidden" name="hairdresserPlaceId" id="hairdresserPlaceId" />
+        <input type="hidden" name="hairdresserName" id="hairdresserName" />
+        <input type="hidden" name="hairdresserLocation" id="hairdresserLocation" />
+        <!-- End Hairdresser data -->
+
+        <input type="submit" class="">
+    </form>
+</section>

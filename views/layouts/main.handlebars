@@ -1,13 +1,17 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>My hairstyle</title>
-  <link rel="stylesheet" type="text/css" href="Style.css">
+
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Hairy Styles</title>
+  <link rel="stylesheet" href="/css/hairystyles.css">
   <script src="https://maps.googleapis.com/maps/api/js?key=YOUR_API_KEY"></script>
+
 </head>
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <body>
-  <header class="head">
+ <header class="head">
     <div class="search">
       <input type="text" class="search-input" placeholder="find your cut"/>
     </div>
@@ -30,6 +34,16 @@
       </ul>
     </nav>
   </header>
+  <div class="flex-column justify-space-around">
+    <header class="display-flex justify-space-between align-center p-2">
+      <h1>
+        <a href="/">Hairy Styles</a>
+      </h1>
+      <nav>
+        <!-- Conditionally render login or logout links -->
+        {{#if logged_in}}
+        <a href="/profile">profile</a> |
+        <button class="no-button" id="logout">logout</button>
   <main class="">
       <!-- Render the sub layout -->
       {{{ body }}}

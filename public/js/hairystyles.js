@@ -1,15 +1,7 @@
-function initMap() {
-    // TODO: Allow user to use their home town
-    var leamingtonSpa = new google.maps.LatLng(52.2852, -1.52);
+// TODO: Allow user to use their home town
+var LEAMINGTON_SPA = { lat: 52.2852, lng: -1.52 };
 
-    var mapElement = document.getElementById('map');
-    var searchElement = document.getElementById('search');
-    var searchButtonElement = document.getElementById('searchButton');
-
-    var hairdresserPlaceIdElement = document.getElementById('hairdresserPlaceId');
-    var hairdresserNameElement = document.getElementById('hairdresserName');
-    var hairdresserLocationElement = document.getElementById('hairdresserLocation');
-
+function createMap(mapElement) {
     // Map styles - turn off Points of Interest
     var mapStyles = [
         {
@@ -22,11 +14,147 @@ function initMap() {
     ];
 
     var map = new google.maps.Map(mapElement, {
-        center: leamingtonSpa,
+        center: LEAMINGTON_SPA,
         zoom: 15,
         styles: mapStyles
     });
 
+    return map;
+}
+
+function initHomepage() {
+    // Initialise the homepage
+    var mapElement = document.getElementById('map');
+    var searchElement = document.getElementById('search');
+    var searchButtonElement = document.getElementById('searchButton');
+
+    var map = createMap(mapElement);
+
+    function searchHairStyles() {
+        var searchText = searchElement.value;
+        console.log('Searching for hairstyles matching: ', searchText);
+        // TODO fetch /api/search?query=xxx
+
+        // Option A - List of hairdressers and associated hairstyles
+        /*
+          Sequelize example:
+
+          Hairdresser.findAll(
+            include: [{
+                model: HairStyle,
+                include: [{
+                    model: StyleTag
+                    where: {
+                        name: 'pixie'
+                    }
+                }]
+            }]
+          )
+          
+        */
+        var mockSearchResultsA = [
+            {
+                id: 1,
+                hairdresser_name: 'Nashwhite',
+                location: '(52.2852, -1.52)',
+                hairstyles: [
+                    {
+                        hairstyle_id: 1,
+                        image_name: 'my-pixie-hairstyle-from-nashwhite.jpg',
+                        style_tags: ['pixie']
+                    }
+                ]
+            },
+            {
+                id: 2,
+                hairdresser_name: 'Indigo Hair Ltd',
+                location: '(52.2852, -1.52)',
+                hairstyles: [
+                    {
+                        hairstyle_id: 2,
+                        image_name: 'my-pixie-hairstyle-from-indigo.jpg',
+                        style_tags: ['pixie']
+                    },
+                    {
+                        hairstyle_id: 3,
+                        image_name: 'my-pixie-lob-hairstyle-from-indigo.jpg',
+                        style_tags: ['pixie', 'lob']
+                    }
+                ]
+            }
+        ];
+
+        // Option B - List of hairstyles and associated hairdresser
+        /*
+          Sequelize example:
+
+          HairStyle.findAll(
+            include: [{
+                model: StyleTag,
+                where: {
+                    name: 'pixie'
+                }
+            }]
+          )
+          
+        */
+        var mockSearchResultsB = [
+            {
+                id: 1,
+                image_name: 'my-pixie-hairstyle-from-nashwhite.jpg',
+                hairdresser: {
+                    id: 1,
+                    hairdresser_name: 'Nashwhite',
+                    location: '(52.2852, 1.52)'
+                },
+                style_tags: ['pixie'],
+            },
+            {
+                id: 2,
+                image_name: 'my-pixie-hairstyle-from-indigo.jpg',
+                hairdresser: {
+                    id: 2,
+                    hairdresser_name: 'Indigo Hair Ltd',
+                    location: '(52.2852, 1.52)'
+                },
+                style_tags: ['pixie'],
+            },
+            {
+                image_name: 'my-pixie-lob-hairstyle-from-indigo.jpg',
+                hairdresser: {
+                    id: 2,
+                    hairdresser_name: 'Indigo Hair Ltd',
+                    location: '(52.2852, 1.52)'
+                },
+                style_tags: ['pixie', 'lob'],
+            }
+        ];
+
+        // Loop over dataset
+        for(var i=0; i<mockSearchResultsA.length; i++) {
+            var result = mockSearchResultsA[i];
+            console.log(`Option A - Result ${i+1} - ${result.hairdresser_name} - ${result.location}`);
+        }
+
+        for(var i=0; i<mockSearchResultsB.length; i++) {
+            var result = mockSearchResultsB[i];
+            console.log(`Option B - Result ${i+1} - ${result.hairdresser.hairdresser_name} - ${result.hairdresser.location}`);
+        }
+    }
+
+    searchButtonElement.addEventListener('click', searchHairStyles);
+}
+
+function initUpload() {
+    var mapElement = document.getElementById('map');
+    var searchElement = document.getElementById('search');
+    var searchButtonElement = document.getElementById('searchButton');
+
+    var hairdresserPlaceIdElement = document.getElementById('hairdresserPlaceId');
+    var hairdresserNameElement = document.getElementById('hairdresserName');
+    var hairdresserLocationElement = document.getElementById('hairdresserLocation');
+
+    var map = createMap(mapElement);
     var service = new google.maps.places.PlacesService(map);
 
     // Marker and Info Window for displaying a search result on the map
@@ -41,7 +169,7 @@ function initMap() {
 
         var searchText = searchElement.value;
         var request = {
-            location: leamingtonSpa,
+            location: LEAMINGTON_SPA,
             radius: '5000',
             keyword: searchText,
             type: ['hair_care', 'beauty_salon']
@@ -85,6 +213,20 @@ function initMap() {
     }
 
     searchButtonElement.addEventListener('click', searchPlaces);
+
+}
+
+function initMap() {
+    var homepageElement = document.getElementById("homepage");
+    var uploadElement = document.getElementById("upload");
+
+    if (homepageElement) {
+        initHomepage();
+    }
+
+    if (uploadElement) {
+        initUpload();
+    }
 
 }
 
