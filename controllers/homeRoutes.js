@@ -1,16 +1,26 @@
 const router = require("express").Router();
-const { Hairdresser, User, Post, HairStyle } = require("../models");
+const { Hairdresser, User, Post, HairStyle, Comment } = require("../models");
 const withAuth = require("../utils/auth");
 
 router.get("/", async (req, res) => {
   try {
-    const newData = await Post.findAll({});
-
+    const newData = await Post.findAll({
+      include: [
+        {
+          model: User,
+        },
+        {
+          model: Comment,
+          attributes: ["user_comment"],
+        },
+      ],
+    });
     const posts = newData.map((post) => post.get({ plain: true }));
+    console.log(posts);
     res.render("homepage", {
       posts,
       logged_in: req.session.logged_in,
-      // google_api_key: process.env.GOOGLE_API_KEY,
+      google_api_key: process.env.GOOGLE_API_KEY,
     });
   } catch (err) {
     res.status(500).json(err);
