@@ -45,10 +45,21 @@ ul {
   list-style-type: none;
   margin: 0 25px;
 }
+
  ul li a {
   text-decoration: none;
-  color: #000 ; 
-  padding: 0 10px;
+  color: #86076c;
+  padding: 0px 10px;
+  margin: auto;
+  font-size: 0.80rem;
+  font-weight: 700;
+}
+
+ ul li a:hover{
+  color: #ae058b;
+  padding: 0px 10px;
+  font-size: 0.85rem;
+  font-weight: 900;
 }
 
 .logo {
@@ -96,105 +107,14 @@ form1 {
     align-items: center;
 }
 
-.form {
-  position:relative;
-  top:50%;
-  left:50%;
-  transform:translate(-50%,-50%);
-  width:300px;
-  height:250px;
-  padding:10px;
-}
-.form .form-header {
-  height:30px;
-  display:flex;
-  align-items:center;
-  text-align:center;
-}
-.form .form-header > div {
-  width:calc(100% / 3);
-  color:#ddd;
-  font-size:18px;
-  font-weight:600;
-  cursor:pointer;
-}
-
-.form.signup .form-header div.show-signup {
-  color:#f1575b;
-}
-
-.form.signin .form-header div.show-signin {
-  color:#f1575b;
-}
-
-.form.reset .form-header div.show-reset {
-  color:#f1575b;
-}
-
-.form .form-elements {
-  margin-top:20px;
-}
-.form .form-elements .form-element {
-  height:50px;
-  opacity:1;
-  overflow:hidden;
-  transition:all 500ms ease-in-out;
-}
-.form .form-elements input {
-  width:100%;
-  padding:10px;
-  font-size:16px;
-  margin:5px 0px;
-  border-radius:10px;
-  box-sizing:border-box;
-  border:1px solid #222;
-  background:#fbbcf6;
-}
-.form .form-elements button {
-  width:100%;
-  padding:10px;
-  font-size:16px;
-  font-weight:600;
-  margin-top:5px;
-  border-radius:10px;
-  background: #f157c2;
-  color:#f5f5f5;
-  cursor:pointer;
-  border:none;
-  outline:none;
-}
-.form .arrow {
-  position:absolute;
-  top:51px;
-  width:0;
-  height:0;
-  border-left:10px solid transparent;
-  border-right:10px solid transparent;
-  border-bottom:10px solid #f5f5f5;
-}
-.form.signup .arrow {
-  left:calc(calc(100% / 3) / 2);
-}
-.form.signin .arrow {
-  left:calc(calc(100% / 3) + calc(calc(100% / 3) / 2.2)) ;
-}
-.form.reset .arrow {
-  left:calc(calc(calc(100% / 3) * 2) + calc(calc(100% / 3) / 3)) ;
-}
-
-.form.signin .form-elements > div:nth-child(3) {
-  height:0px;
-  opacity:0;
-}
-.form.reset .form-elements > div:nth-child(2),
-.form.reset .form-elements > div:nth-child(3) {
-  height:0px;
-  opacity:0;
-}
 
 
 label {
-  margin-right: 10px;
+    padding: 0px 10px;
+    margin: auto;
+    font-size: 1.2rem;
+    font-weight: 700;
+    color: #ff9ee1;
 }
 
 
@@ -213,6 +133,7 @@ form {
     flex-direction: column;
     align-items: center;
 }
+
 
 h2 {
     text-transform: uppercase;
@@ -336,7 +257,7 @@ input#email {
 
 
 input[type="text"] {
-    background-color: #ffffff;
+    background-color: #ff9ee1;
     border: 1px solid #E2E2E2;
     padding: 5px;
     width: 300px;
