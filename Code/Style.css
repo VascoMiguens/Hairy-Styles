@@ -145,6 +145,7 @@ form3 {
     bottom: 23px;
     right: 28px px;
     width: 280px;
+    flex-direction: row;
 }
 
 h2 {
