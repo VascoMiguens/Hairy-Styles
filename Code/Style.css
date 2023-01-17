@@ -290,6 +290,9 @@ input[type="submit"] {
     margin-bottom: 3px;
     margin-top: 3px;
     border-radius: 7px;
+    opacity: 0.8;
+    padding: 16px 20px;
+    border: none;
 }
 
 input[type="text"] {
