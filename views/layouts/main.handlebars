@@ -23,13 +23,11 @@
         <li class="nav-elements"><a href="">Home</a></li>
         <li class="nav-elements"><a href="">SUBMIT YOUR CUT</a></li>
         <li class="nav-elements"><a href="">CONTACT</a></li>
-        {{#if !logged_in}}
-        <li class="nav-elements"><a href="">SIGN IN</a></li>
-        {{else}}
-        <li class="nav-elements"><a href="">Profile</a></li>
-        {{/if}}
         {{#if logged_in}}
+        <li class="nav-elements"><a href="">Profile</a></li>
         <li class="nav-elements"><a href="">LogOut</a></li>
+        {{else}}
+        <li class="nav-elements"><a href="">SIGN IN</a></li>
         {{/if}}
       </ul>
     </nav>
@@ -44,6 +42,7 @@
         {{#if logged_in}}
         <a href="/profile">profile</a> |
         <button class="no-button" id="logout">logout</button>
+        {{/if}}
   <main class="">
       <!-- Render the sub layout -->
       {{{ body }}}

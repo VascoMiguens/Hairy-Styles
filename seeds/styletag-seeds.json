@@ -1,0 +1,30 @@
+[
+    {
+    "hairdresser_id": 1,
+    "hairstyle_id": 4
+    },
+    {
+    "hairdresser_id": 5,
+    "hairstyle_id": 4
+    },
+    {
+    "hairdresser_id": 2,
+    "hairstyle_id": 2
+    },
+    {
+    "hairdresser_id": 3,
+    "hairstyle_id": 3
+    },
+    {
+    "hairdresser_id": 4,
+    "hairstyle_id": 1
+    },
+    {
+    "hairdresser_id": 5,
+    "hairstyle_id": 4
+    },
+    {
+    "hairdresser_id": 2,
+    "hairstyle_id": 6
+    }
+]

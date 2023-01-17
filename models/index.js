@@ -38,6 +38,7 @@ Hairdresser.belongsToMany(HairStyle, {
     model: StyleTag,
     unique: false,
   },
+  foreignKey: "hairdresser_id",
   //Alias for when data is retrieved
   as: "salon_tag",
 });
@@ -47,6 +48,7 @@ HairStyle.belongsToMany(Hairdresser, {
     model: StyleTag,
     unique: false,
   },
+  foreignKey: "hairstyle_id",
   //Alias for when data is retrieved
   as: "style_tags",
 });

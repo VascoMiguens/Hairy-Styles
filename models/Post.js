@@ -28,6 +28,13 @@ Post.init(
         key: "id",
       },
     },
+    hairdresser_id: {
+      type: DataTypes.INTEGER,
+      references: {
+        model: "hairdresser",
+        key: "id",
+      },
+    },
     hairstyle_id: {
       type: DataTypes.INTEGER,
       references: {

@@ -4,29 +4,13 @@ const withAuth = require("../utils/auth");
 
 router.get("/", async (req, res) => {
   try {
-    const newData = await Post.findAll({
-      include: [
-        {
-          model: User,
-        },
-        {
-          model: Comment,
-        },
-        {
-          model: HairStyle,
-          throgh: {
-            StyleTag,
-            as: "salon_tag",
-          },
-        },
-      ],
-    });
+    const newData = await Post.findAll({});
 
     const posts = newData.map((post) => post.get({ plain: true }));
     res.render("homepage", {
       posts,
       logged_in: req.session.logged_in,
-      google_api_key: process.env.GOOGLE_API_KEY,
+      // google_api_key: process.env.GOOGLE_API_KEY,
     });
   } catch (err) {
     res.status(500).json(err);

@@ -16,20 +16,6 @@ HairStyle.init(
     hairstyle_name: {
       type: DataTypes.STRING,
     },
-    hairdresser_id: {
-      type: DataTypes.INTEGER,
-      references: {
-        model: "hairdresser",
-        key: "id",
-      },
-    },
-    post_id: {
-      type: DataTypes.INTEGER,
-      references: {
-        model: 'post',
-        key: 'id',
-      }
-    },
   },
   {
     sequelize,

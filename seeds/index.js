@@ -1,11 +1,19 @@
 const sequelize = require("../config/connection");
-const { User, Post, Comment, Hairdresser, HairStyle } = require("../models");
+const {
+  User,
+  Post,
+  Comment,
+  Hairdresser,
+  HairStyle,
+  StyleTag,
+} = require("../models");
 
 const seedUsers = require("./user-seeds.json");
 const seedComments = require("./comments-seeds.json");
 const seedHairdressers = require("./hairdresser-seeds.json");
 const seedHairstyle = require("./hairstyle-seeds.json");
 const seedPosts = require("./posts-seeds.json");
+const seedStyleTag = require("./styletag-seeds.json");
 
 const seedDatabase = async () => {
   await sequelize.sync({ force: true });
@@ -20,7 +28,11 @@ const seedDatabase = async () => {
     returning: true,
   });
 
-  const hairstyles = await HairStyle.bulkCreate(seedHairstyle, {
+  const hairStyles = await HairStyle.bulkCreate(seedHairstyle, {
+    returning: true,
+  });
+
+  const styletag = await StyleTag.bulkCreate(seedStyleTag, {
     returning: true,
   });
 
@@ -32,8 +44,8 @@ const seedDatabase = async () => {
       user_id: users[Math.floor(Math.random() * users.length)].id,
       hairdresser_id:
         hairdressers[Math.floor(Math.random() * hairdressers.length)].id,
-      hairstyles_id:
-        hairstyles[Math.floor(Math.random() * hairstyles.length)].id,
+      hairstyle_id:
+        hairStyles[Math.floor(Math.random() * hairStyles.length)].id,
     });
     posts.push(newPost);
   }
