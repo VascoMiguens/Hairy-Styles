@@ -204,7 +204,11 @@ form1 {
 
 
 label {
-  margin-right: 10px;
+    padding: 0px 10px;
+    margin: auto;
+    font-size: 1.2rem;
+    font-weight: 700;
+    color: #ff9ee1;
 }
 
 
