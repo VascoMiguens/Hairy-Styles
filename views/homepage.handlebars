@@ -1,24 +1,36 @@
-<div id="map"></div>
-<label for="search">Search</label>
-<input type="text" name="search" id="search" placeholder="Enter a hairdresser or salon name" />
-<button id="searchButton">Search</button>
-<br>
+{{!-- map --}}
+<div class="mapbox">
+    <div id="map"></div>
+</div>
+{{!-- results --}}
+<section class="searchbox">
+    <h3>MY RESTAURANTS</h3>
+    <div id=my-restaurants class="results">
+    </div>
+</section>
+
+{{!-- tag search --}}
 <p>
     Example hairdressers in Leamington Spa: Toni & Guy, Geiko, Indigo Hair, The Spa
 </p>
-
-<form action="/" method="POST" enctype="multipart/form-data">
-<h3>Upload Profile Photo</h3>
-<input type="file" name="sampleFile" accpet="image/*"/>
-
 <label for="tags">Tags</label>
 <textarea name="tags" id="tags" placeholder="#pixie, #bob"></textarea>
-
 <!-- Hairdresser data populated from Google Places API result -->
 <input type="hidden" name="hairdresserPlaceId" id="hairdresserPlaceId" />
 <input type="hidden" name="hairdresserName" id="hairdresserName" />
 <input type="hidden" name="hairdresserLocation" id="hairdresserLocation" />
 <!-- End Hairdresser data -->
-
 <input type="submit" class="">
 </form>
+
+
+
+{{!-- post form --}}
+{{#if logged_in}}
+<div class="new-post">
+    <form enctype="multipart/form-data">
+        <input type="text" placeholder="tag your salon"/>
+        <input type="file" name="image" />
+        <textarea type="text" class="post-body" placeholder="submit your experience"></textarea>
+    </form>
+</div>

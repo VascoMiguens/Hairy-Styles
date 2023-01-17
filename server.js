@@ -3,7 +3,6 @@ const express = require("express");
 const session = require("express-session");
 const exphbs = require("express-handlebars");
 const SequelizeStore = require("connect-session-sequelize")(session.Store);
-const fileUpload = require("express-fileupload");
 
 const routes = require("./controllers");
 const sequelize = require("./config/connection");
@@ -33,7 +32,6 @@ const sess = {
 };
 
 app.use(session(sess));
-app.use(fileUpload());
 // Inform Express.js on which template engine to use
 app.engine("handlebars", hbs.engine);
 app.set("view engine", "handlebars");

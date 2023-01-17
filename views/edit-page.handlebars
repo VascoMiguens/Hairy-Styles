@@ -1,0 +1,9 @@
+<div class="new-post">
+    <h3>Create New Post</h3>
+    <form class="post-form">
+        <img src="{{post.image_name}}" alt="uploaded user image"/>
+        <textarea placeholder="Content" class="form-content" rows="20">{{post.body}}</textarea>
+        <button class="btn" type="submit">Edit Post</button>
+        <button class="btn btn-sm btn-danger" data-id="{{post.id}}">DELETE</button>
+    </form>
+</div>

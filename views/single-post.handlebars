@@ -1,0 +1,15 @@
+<div id="posts">
+    <div class="posts-card">
+        <div class="posts-card-header">
+            <span class="post-author">{{user.username}}</span>
+            <span class="post-date">{{format_date createdAt}}</span>
+        </div>
+        <div class="posts-card-body">
+            <p>
+                {{body}}
+            </p>
+            <a href="/post/{{id}}"><i class="fa fa-comment"><span> {{comments.length}} {{ format_plural "comment"
+                        comments.length }} </span></i></a>
+        </div>
+    </div>
+</div>
