@@ -132,10 +132,8 @@ form {
     display: flex;
     flex-direction: column;
     align-items: center;
-    position: fixed;
     bottom: 23px;
     right: 28px px;
-    width: 280px;
     left: -50px;
 }
 
