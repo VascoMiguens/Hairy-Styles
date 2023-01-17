@@ -137,6 +137,15 @@ form {
     left: -50px;
 }
 
+form3 {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    position: fixed;
+    bottom: 23px;
+    right: 28px px;
+    width: 280px;
+}
 
 h2 {
     text-transform: uppercase;
