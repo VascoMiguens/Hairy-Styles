@@ -2,14 +2,15 @@ const sequelize = require("../config/connection");
 const { User, Post, Comment, Hairdresser, HairStyle } = require("../models");
 
 const seedUsers = require("./user-seeds.json");
-const seedComments = require("./comment-seeds.json");
+const seedComments = require("./comments-seeds.json");
 const seedHairdressers = require("./hairdresser-seeds.json");
 const seedHairstyle = require("./hairstyle-seeds.json");
+const seedPosts = require("./posts-seeds.json");
 
 const seedDatabase = async () => {
   await sequelize.sync({ force: true });
 
-  //create users through the seeds and use hooks to encript passowrd
+  // create users through the seeds and use hooks to encript passowrd
   const users = await User.bulkCreate(seedUsers, {
     individualHooks: true,
     returning: true,
@@ -29,9 +30,10 @@ const seedDatabase = async () => {
     const newPost = await Post.create({
       ...post,
       user_id: users[Math.floor(Math.random() * users.length)].id,
-      hairdresser_id: hairdressers.floor(Math.random() * hairdressers.length)
-        .id,
-      hairstyles_id: hairstyles.floor(Math.random() * hairstyles.length).id,
+      hairdresser_id:
+        hairdressers[Math.floor(Math.random() * hairdressers.length)].id,
+      hairstyles_id:
+        hairstyles[Math.floor(Math.random() * hairstyles.length)].id,
     });
     posts.push(newPost);
   }

@@ -20,23 +20,23 @@ Hairdresser.init(
       type: DataTypes.STRING,
       allowNull: false,
     },
-    location:{
+    location: {
       type: DataTypes.STRING,
       allowNull: false,
     },
     styletag_id: {
       type: DataTypes.INTEGER,
       references: {
-        model: "tag",
+        model: "style_tag",
         key: "id",
       },
     },
     post_id: {
       type: DataTypes.INTEGER,
       references: {
-        model: 'post',
-        key: 'id',
-      }
+        model: "post",
+        key: "id",
+      },
     },
   },
   {
