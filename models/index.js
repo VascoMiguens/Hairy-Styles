@@ -50,7 +50,7 @@ HairStyle.belongsToMany(Hairdresser, {
     unique: false,
   },
   //Alias for when data is retrieved
-  as: "style_tag",
+  as: "style_tags",
 });
 
 

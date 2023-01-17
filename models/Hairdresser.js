@@ -27,7 +27,7 @@ Hairdresser.init(
     styletag_id: {
       type: DataTypes.INTEGER,
       references: {
-        model: "tag",
+        model: "style_tag",
         key: "id",
       },
     },
