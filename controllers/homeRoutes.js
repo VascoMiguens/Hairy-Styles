@@ -4,21 +4,7 @@ const withAuth = require("../utils/auth");
 
 router.get("/", async (req, res) => {
   try {
-    const newData = await Post.findAll({
-      include: [
-        {
-          model: User,
-        },
-        {
-          model: Comment,
-          attributes: ["user_comment"],
-        },
-      ],
-    });
-    const posts = newData.map((post) => post.get({ plain: true }));
-    console.log(posts);
     res.render("homepage", {
-      posts,
       logged_in: req.session.logged_in,
       google_api_key: process.env.GOOGLE_API_KEY,
     });
@@ -32,19 +18,16 @@ router.get("/post/:id", async (req, res) => {
     const postData = await Post.findByPk(req.params.id, {
       include: [
         {
-          model: Comment,
-          include: {
-            model: User,
-            attributes: ["username"],
-          },
-        },
-        {
           model: User,
           attributes: { exclude: ["password"] },
+        },
+        {
+          model: Comment,
         },
       ],
     });
     const post = postData.get({ plain: true });
+    console.log(post);
     res.render("single-post", {
       post,
       logged_in: req.session.logged_in,
@@ -54,7 +37,7 @@ router.get("/post/:id", async (req, res) => {
   }
 });
 
-router.get("/profile", withAuth, async (req, res) => {
+router.get("/profile", async (req, res) => {
   try {
     const userData = await User.findByPk(req.session.user_id, {
       attributes: { exclude: ["password"] }, //delete if change password
@@ -65,13 +48,13 @@ router.get("/profile", withAuth, async (req, res) => {
         {
           model: Hairdresser,
         },
-
         {
           model: HairStyle,
         },
       ],
     });
     const user = userData.get({ plain: true });
+    console.log(userData);
     res.render("profile", {
       ...user,
       logged_in: true,
