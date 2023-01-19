@@ -72,8 +72,10 @@ function initHomepage() {
             var result = mockSearchResults[i];
             console.log(`${i+1} - ${result.hairdresser_name} - ${result.location}`);
         }
+    }
     searchButtonElement.addEventListener('click', searchHairStyles);
-}
+
+};
 
 function initUpload() {
     var mapElement = document.getElementById('map');

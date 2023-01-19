@@ -1,8 +1,8 @@
 var moment = require("moment");
 module.exports = {
   format_date: (date) => {
+    // Format date as MM/DD/YYYY
     return date.toLocaleDateString();
-    // return moment(time).fromNow();
   },
   format_plural: (word, amount) => {
     if (amount !== 1) {

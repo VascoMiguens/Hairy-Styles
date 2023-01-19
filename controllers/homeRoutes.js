@@ -1,16 +1,20 @@
 const router = require("express").Router();
-const { Hairdresser, User, Post, HairStyle } = require("../models");
+const { Hairdresser, User, Post, HairStyle, Comment, StyleTag } = require("../models");
 const withAuth = require("../utils/auth");
 
 router.get("/", async (req, res) => {
   try {
-    const newData = await Post.findAll({});
+    const newData = await Post.findAll({
+      include: [
+        { model: User }
+      ]
+    });
 
     const posts = newData.map((post) => post.get({ plain: true })); 
     res.render("homepage", {
       posts,
       logged_in: req.session.logged_in,
-      google_api_key: process.env.GOOGLE_API_KEY
+      // google_api_key: process.env.GOOGLE_API_KEY
     });
   } catch (err) {
     res.status(500).json(err);
@@ -20,19 +24,19 @@ router.get("/", async (req, res) => {
 router.get("/post/:id", async (req, res) => {
   try {
     const postData = await Post.findByPk(req.params.id, {
-      include: [
-        {
-          model: Comment,
-          include: {
-            model: User,
-            attributes: ["username"],
-          },
-        },
-        {
-          model: User,
-          attributes: { exclude: ["password"] },
-        },
-      ],
+      // include: [
+      //   {
+      //     model: Comment,
+      //     include: {
+      //       model: User,
+      //       attributes: ["username"],
+      //     },
+      //   },
+      //   {
+      //     model: User,
+      //     attributes: { exclude: ["password"] },
+      //   },
+      // ],
     });
     const post = postData.get({ plain: true });
     res.render("single-post", {
@@ -45,21 +49,24 @@ router.get("/post/:id", async (req, res) => {
 });
 
 router.get("/profile", withAuth, async (req, res) => {
+  if (req.session.logged_out) {
+    res.redirect('/login');
+  } else {   
   try {
     const userData = await User.findByPk(req.session.user_id, {
       attributes: { exclude: ["password"] }, //delete if change password
-      include: [
-        {
-          model: Post,
-        },
-        {
-          model: Hairdresser,
-        },
+      // include: [
+      //   {
+      //     model: Post,
+      //   },
+      //   {
+      //     model: Hairdresser,
+      //   },
 
-        {
-          model: HairStyle,
-        },
-      ],
+      //   {
+      //     model: HairStyle,
+      //   },
+      // ],
     });
     const user = userData.get({ plain: true });
     res.render("profile", {
@@ -69,7 +76,7 @@ router.get("/profile", withAuth, async (req, res) => {
   } catch (err) {
     res.status(500).json(err);
   }
-});
+}});
 
 router.get("/contact", async (req, res) => {
   res.render("contact");
