@@ -32,7 +32,7 @@ StyleTag.init(
     timestamps: false,
     freezeTableName: true,
     underscored: true,
-    modelName: "style_tag",
+    modelName: "styletag",
   }
 );
 

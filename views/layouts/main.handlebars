@@ -15,41 +15,28 @@
       <input type="text" class="search-input" placeholder="find your cut"/>
     </div>
     <div class="logo">
-      <img src="/lo.png" alt="">
+      <img src="/images/lo.png" alt="">
     </div>
     <nav class="nav">
       <ul>
-        <li class="nav-elements"><a href="">Home</a></li>
-        <li class="nav-elements"><a href="">SUBMIT YOUR CUT</a></li>
-        <li class="nav-elements"><a href="">CONTACT</a></li>
+        <li class="nav-elements"><a href="/">Home</a></li>
+        <li class="nav-elements"><a href="/newPost">SUBMIT YOUR CUT</a></li>
+        <li class="nav-elements"><a href="/contacts">CONTACTS</a></li>
         {{#if logged_in}}
-        <li class="nav-elements"><a href="">Profile</a></li>
-        <li class="nav-elements"><a href="">LogOut</a></li>
+        <li class="nav-elements"><a href="/profile">Profile</a></li>
+        <li class="nav-elements" id="logout"><a href="/">LogOut</a></li>
         {{else}}
-        <li class="nav-elements"><a href="">SIGN IN</a></li>
+        <li class="nav-elements"><a href="/login">SIGN IN</a></li>
         {{/if}}
       </ul>
     </nav>
   </header>
-  <div class="flex-column justify-space-around">
-    <header class="display-flex justify-space-between align-center p-2">
-      <h1>
-        <a href="/">Hairy Styles</a>
-      </h1>
-      <nav>
-        <!-- Conditionally render login or logout links -->
-        {{#if logged_in}}
-        <a href="/profile">profile</a> |
-        <button class="no-button" id="logout">logout</button>
-        {{/if}}
   <main class="">
       <!-- Render the sub layout -->
       {{{ body }}}
     </main>
-    <footer>
-      
+    <footer>    
     </footer>
-  </div>
   <!-- Render script for logged in users only -->
   {{#if logged_in}}
   <script src="/js/logout.js"></script>
