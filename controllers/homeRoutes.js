@@ -1,12 +1,24 @@
 const router = require("express").Router();
-const { Hairdresser, User, Post, HairStyle, Comment } = require("../models");
+
+const { Hairdresser, User, Post, HairStyle, Comment, StyleTag } = require("../models");
+
 const withAuth = require("../utils/auth");
 
 router.get("/", async (req, res) => {
   try {
+    const newData = await Post.findAll({
+      include: [
+        { model: User }
+      ]
+    });
+
+    const posts = newData.map((post) => post.get({ plain: true })); 
+
     res.render("homepage", {
       logged_in: req.session.logged_in,
+
       google_api_key: process.env.GOOGLE_API_KEY,
+
     });
   } catch (err) {
     res.status(500).json(err);
@@ -16,15 +28,7 @@ router.get("/", async (req, res) => {
 router.get("/post/:id", async (req, res) => {
   try {
     const postData = await Post.findByPk(req.params.id, {
-      include: [
-        {
-          model: User,
-          attributes: { exclude: ["password"] },
-        },
-        {
-          model: Comment,
-        },
-      ],
+
     });
     const post = postData.get({ plain: true });
     console.log(post);
@@ -37,21 +41,27 @@ router.get("/post/:id", async (req, res) => {
   }
 });
 
-router.get("/profile", async (req, res) => {
+
+router.get("/profile", withAuth, async (req, res) => {
+  if (req.session.logged_out) {
+    res.redirect('/login');
+  } else {   
   try {
     const userData = await User.findByPk(req.session.user_id, {
       attributes: { exclude: ["password"] }, //delete if change password
-      include: [
-        {
-          model: Post,
-        },
-        {
-          model: Hairdresser,
-        },
-        {
-          model: HairStyle,
-        },
-      ],
+      // include: [
+      //   {
+      //     model: Post,
+      //   },
+      //   {
+      //     model: Hairdresser,
+      //   },
+
+      //   {
+      //     model: HairStyle,
+      //   },
+      // ],
+
     });
     const user = userData.get({ plain: true });
     console.log(userData);
@@ -62,7 +72,7 @@ router.get("/profile", async (req, res) => {
   } catch (err) {
     res.status(500).json(err);
   }
-});
+}});
 
 router.get("/contact", async (req, res) => {
   res.render("contact");

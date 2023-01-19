@@ -132,13 +132,16 @@ function initHomepage() {
             markers.push(marker);
         }
 
+
         map.fitBounds(bounds);
 
     }
 
 
+
     searchButtonElement.addEventListener('click', searchHairStyles);
-}
+
+};
 
 function initUpload() {
     var mapElement = document.getElementById('map');
