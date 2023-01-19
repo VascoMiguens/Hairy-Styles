@@ -132,13 +132,21 @@ form {
     display: flex;
     flex-direction: column;
     align-items: center;
+    bottom: 23px;
+    right: 28px px;
+    left: -50px;
+}
+
+form3 {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
     position: fixed;
     bottom: 23px;
     right: 28px px;
     width: 280px;
-    left: -50px;
+    flex-direction: row;
 }
-
 
 h2 {
     text-transform: uppercase;
@@ -282,6 +290,9 @@ input[type="submit"] {
     margin-bottom: 3px;
     margin-top: 3px;
     border-radius: 7px;
+    opacity: 0.8;
+    padding: 16px 20px;
+    border: none;
 }
 
 input[type="text"] {

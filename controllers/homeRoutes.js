@@ -1,5 +1,7 @@
 const router = require("express").Router();
+
 const { Hairdresser, User, Post, HairStyle, Comment, StyleTag } = require("../models");
+
 const withAuth = require("../utils/auth");
 
 router.get("/", async (req, res) => {
@@ -11,10 +13,12 @@ router.get("/", async (req, res) => {
     });
 
     const posts = newData.map((post) => post.get({ plain: true })); 
+
     res.render("homepage", {
-      posts,
       logged_in: req.session.logged_in,
-      // google_api_key: process.env.GOOGLE_API_KEY
+
+      google_api_key: process.env.GOOGLE_API_KEY,
+
     });
   } catch (err) {
     res.status(500).json(err);
@@ -24,21 +28,10 @@ router.get("/", async (req, res) => {
 router.get("/post/:id", async (req, res) => {
   try {
     const postData = await Post.findByPk(req.params.id, {
-      // include: [
-      //   {
-      //     model: Comment,
-      //     include: {
-      //       model: User,
-      //       attributes: ["username"],
-      //     },
-      //   },
-      //   {
-      //     model: User,
-      //     attributes: { exclude: ["password"] },
-      //   },
-      // ],
+
     });
     const post = postData.get({ plain: true });
+    console.log(post);
     res.render("single-post", {
       post,
       logged_in: req.session.logged_in,
@@ -47,6 +40,7 @@ router.get("/post/:id", async (req, res) => {
     res.status(500).json(err);
   }
 });
+
 
 router.get("/profile", withAuth, async (req, res) => {
   if (req.session.logged_out) {
@@ -67,8 +61,10 @@ router.get("/profile", withAuth, async (req, res) => {
       //     model: HairStyle,
       //   },
       // ],
+
     });
     const user = userData.get({ plain: true });
+    console.log(userData);
     res.render("profile", {
       ...user,
       logged_in: true,

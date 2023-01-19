@@ -7,7 +7,12 @@ const User = require("./User");
 const StyleTag = require("./StyleTag");
 
 User.hasMany(Post, {
-  foreignKey: "post_id",
+  foreignKey: "user_id",
+  onDelete: "CASCADE",
+});
+
+User.hasMany(Comment, {
+  foreignKey: "user_id",
   onDelete: "CASCADE",
 });
 
@@ -24,12 +29,17 @@ Hairdresser.hasMany(Post, {
 });
 
 Post.hasMany(Comment, {
-  foreignKey: "comment_id",
+  foreignKey: "post_id",
   onDelete: "CASCADE",
 });
 
 Comment.belongsTo(Post, {
   foreignKey: "post_id",
+  onDelete: "CASCADE",
+});
+
+Comment.belongsTo(User, {
+  foreignKey: "user_id",
   onDelete: "CASCADE",
 });
 
