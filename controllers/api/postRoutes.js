@@ -1,11 +1,13 @@
 const router = require("express").Router();
 const { Project, Post } = require("../../models");
 const withAuth = require("../../utils/auth");
+const upload = require("../../utils/createImage");
 
-router.post("/", withAuth, async (req, res) => {
+router.post("/newpost", upload.single("image"), async (req, res) => {
   try {
-    const newPost = await Post.create({
-      ...req.body,
+    const imagePath = req.file.path;
+    const newPost = await Image.create({
+      image_name: imagePath,
       user_id: req.session.user_id,
     });
 

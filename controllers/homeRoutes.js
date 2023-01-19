@@ -19,6 +19,12 @@ router.get("/", async (req, res) => {
           model: User,
           exclude: ["password"],
         },
+        {
+          model: Hairdresser,
+        },
+        {
+          model: HairStyle,
+        },
       ],
     });
 
@@ -108,6 +114,10 @@ router.get("/post/:id/edit", withAuth, async (req, res) => {
   } catch (err) {
     res.status(500).json(err);
   }
+});
+
+router.get("/newpost", async (req, res) => {
+  res.render("new-post");
 });
 
 router.get("/contacts", async (req, res) => {

@@ -2,22 +2,23 @@ const newFormHandler = async (event) => {
   event.preventDefault();
 
   //Get the values of "add-post"
-  const title = document.querySelector(".form-title").value;
-  const content = document.querySelector(".form-content").value;
+
+  // const content = document.querySelector(".form-content").value;
+  const image = document.querySelector("input[type='file']").files[0];
+  const data = new FormData();
+  // data.append("content", content);
+  data.append("image", image);
 
   const response = await fetch("api/post", {
     method: "POST",
-    body: JSON.stringify({
-      title,
-      content,
-    }),
+    body: data,
     headers: {
-      "Content-Type": "application/json",
+      "Content-Type": "multipart/form-data",
     },
   });
 
   if (response.ok) {
-    document.location.replace("/dashboard");
+    document.location.replace("/profile");
   } else {
     alert(response.statusText);
   }

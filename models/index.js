@@ -25,6 +25,14 @@ Post.hasMany(Comment, {
   onDelete: "CASCADE",
 });
 
+Post.hasOne(HairStyle, {
+  foreignKey: "id",
+});
+
+Post.hasOne(Hairdresser, {
+  foreignKey: "id",
+});
+
 Comment.belongsTo(Post, {
   foreignKey: "post_id",
   onDelete: "CASCADE",
@@ -39,8 +47,12 @@ Hairdresser.hasMany(Post, {
   foreignKey: "hairdresser_id",
 });
 
-HairStyle.hasMany(Post, {
+HairStyle.belongsTo(Post, {
   foreignKey: "hairstyle_id",
+});
+
+Hairdresser.belongsTo(Post, {
+  foreignKey: "hairdresser_id",
 });
 
 Hairdresser.belongsToMany(HairStyle, {
