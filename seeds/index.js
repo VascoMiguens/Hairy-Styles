@@ -35,21 +35,22 @@ const seedDatabase = async () => {
   const posts = [];
   //randomize allocation of posts
   for (const post of seedPosts) {
-    for (let i = 0; i < seedPosts.length; i++) {
-      const newstyletag = await StyleTag.create({
-        hairdresser_id:
-          hairdressers[Math.floor(Math.random() * hairdressers.length)].id,
-        hairstyle_id:
-          hairStyles[Math.floor(Math.random() * hairStyles.length)].id,
-      });
-      console.log(newstyletag);
-      styletag.push(newstyletag);
-    }
     const newPost = await Post.create({
       ...post,
       user_id: users[Math.floor(Math.random() * users.length)].id,
-      styletag_id: styletag[Math.floor(Math.random() * styletag.length)].id,
+      hairdresser_id:
+        hairdressers[Math.floor(Math.random() * hairdressers.length)].id,
+      hairstyle_id:
+        hairStyles[Math.floor(Math.random() * hairStyles.length)].id,
     });
+    for (let i = 0; i < seedPosts.length; i++) {
+      const newstyletag = await StyleTag.create({
+        hairdresser_id: newPost.hairdresser_id,
+        hairstyle_id: newPost.hairstyle_id,
+      });
+      styletag.push(newstyletag);
+    }
+
     posts.push(newPost);
   }
 

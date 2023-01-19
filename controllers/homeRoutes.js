@@ -17,14 +17,7 @@ router.get("/", async (req, res) => {
       include: [
         {
           model: User,
-        },
-        {
-          model: StyleTag,
-          include: [
-            {
-              model: Hairdresser,
-            },
-          ],
+          exclude: ["password"],
         },
       ],
     });
@@ -117,7 +110,7 @@ router.get("/post/:id/edit", withAuth, async (req, res) => {
   }
 });
 
-router.get("/contact", async (req, res) => {
+router.get("/contacts", async (req, res) => {
   res.render("contact");
 });
 

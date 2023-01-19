@@ -28,10 +28,17 @@ Post.init(
         key: "id",
       },
     },
-    styletag_id: {
+    hairdresser_id: {
       type: DataTypes.INTEGER,
       references: {
-        model: "styletag",
+        model: "hairdresser",
+        key: "id",
+      },
+    },
+    hairstyle_id: {
+      type: DataTypes.INTEGER,
+      references: {
+        model: "hairstyle",
         key: "id",
       },
     },
