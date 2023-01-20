@@ -1,9 +1,22 @@
 <div class="new-post">
     <h3>Create New Post</h3>
-    <form class="post-form" enctype="multipart/form-data">
-        <input type="file" id="image-input" name="image">
-        
-        {{!-- <textarea placeholder="Content" class="form-content" rows="20"></textarea> --}}
+    <form action="/api/posts/newreview" method="POST" enctype="multipart/form-data">
+        <input type="file" id="image-input" name="image" />
+        <label for="hairstyle-select">Select Hairstyle:</label>
+        <select id="hairstyle-select" name="hairstyle">
+            {{#each hairstyle}}
+            <option value="{{id}}">{{hairstyle_name}}</option>
+            {{/each}}
+        </select>
+        <br>
+        <label for="hairdresser-select">Select Hairdresser:</label>
+        <select id="hairdresser-select" name="hairdresser">
+            {{#each hairdresser}}
+            <option value="{{id}}">{{hairdresser_name}}</option>
+            {{/each}}
+        </select>
+        <br>
+        <textarea placeholder="Content" class="text-content" name="textInput" rows="20"></textarea>
         <button class="btn">Add Post</button>
     </form>
 </div>

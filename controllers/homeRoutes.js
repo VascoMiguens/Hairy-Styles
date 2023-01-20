@@ -129,9 +129,26 @@ router.get("/post/:id/edit", withAuth, async (req, res) => {
 });
 
 router.get("/newpost", withAuth, async (req, res) => {
-  res.render("new-post", {
-    logged_in: req.session.logged_in,
-  });
+  try {
+    const newHairstyle = await HairStyle.findAll({});
+    const newHairdresser = await Hairdresser.findAll({});
+    const hairstyle = newHairstyle.map((hairstyle) =>
+      hairstyle.get({ plain: true })
+    );
+    const hairdresser = newHairdresser.map((hairdresser) =>
+      hairdresser.get({ plain: true })
+    );
+    console.log(hairstyle);
+    res.render("new-post", {
+      hairstyle: hairstyle,
+      hairdresser: hairdresser,
+      user_id: req.session.user_id,
+      logged_in: req.session.logged_in,
+      google_api_key: process.env.GOOGLE_API_KEY,
+    });
+  } catch (err) {
+    res.status(500).json(err);
+  }
 });
 
 router.get("/contacts", async (req, res) => {

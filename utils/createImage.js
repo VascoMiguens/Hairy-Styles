@@ -20,19 +20,4 @@ const fileFilter = (req, file, cb) => {
 
 const upload = multer({ storage, fileFilter });
 
-// const upload = multer({
-//   storage: storage,
-//   limits: { fileSize: "10000000" },
-//   fileFilter: (req, file, cb) => {
-//     const fileTypes = /jpeg|jpg|png|gif/;
-//     const mimetype = fileTypes.test(file.mimetype);
-//     const extname = fileTypes.test(path.extname(file.originalname));
-
-//     if (mimetype && extname) {
-//       return cb(null, true);
-//     }
-//     cb("Wrong format type");
-//   },
-// }).single("image");
-
 module.exports = upload;

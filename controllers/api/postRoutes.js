@@ -3,19 +3,31 @@ const { Project, Post } = require("../../models");
 const withAuth = require("../../utils/auth");
 const upload = require("../../utils/createImage");
 
-router.post("/newpost", upload.single("image"), async (req, res) => {
-  try {
-    const imagePath = req.file.path;
-    const newPost = await Image.create({
-      image_name: imagePath,
-      user_id: req.session.user_id,
-    });
+router.post(
+  "/newreview",
+  withAuth,
+  upload.single("image"),
+  async (req, res) => {
+    console.log(req.body);
+    console.log(req.session.user_id);
+    try {
+      console.log(req.body);
+      const newImage = await Post.create({
+        image_name: req.file.path,
+        body: req.body.textInput,
+        user_id: req.session.user_id,
+        hairdresser_id: req.body.hairdresser,
+        hairstyle_id: req.body.hairstyle,
+      });
 
-    res.status(200).json(newPost);
-  } catch (err) {
-    res.status(400).json(err);
+      console.log(newImage);
+
+      res.status(200).json(newImage);
+    } catch (err) {
+      res.status(500).json(err);
+    }
   }
-});
+);
 
 router.put("/:id", withAuth, async (req, res) => {
   try {
