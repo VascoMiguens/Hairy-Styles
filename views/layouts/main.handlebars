@@ -11,13 +11,32 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <body>
  <header class="head">
-    <div class="search">
+  <nav class="nav">
+
+    {{!-- below is commented out to see which search bar is better in the nav --}}
+
+      {{!-- <div class="search">
       <input type="text" class="search-input" placeholder="find your cut"/>
-    </div>
-    <div class="logo">
-      <img src="/images/lo.png" alt="">
-    </div>
-    <nav class="nav">
+      </div> --}}
+
+       {{!-- <form1>
+      <label for="haircut-search">Search for a haircut:</label>
+      <input type="text" id="haircut-search" placeholder="e.g. shag haircut, bixie, wolf cut">
+      <button type="submit">Search</button>
+      </form1> --}}
+
+      <div class="search">
+        <label for="search">Search</label>
+        {{!-- <input type="text" id="search" placeholder="Choose a haircut or style" /> --}}
+        <select id="search" name="hairstyle">
+            {{#each hairstyle}}
+            <option value="{{id}}">{{hairstyle_name}}</option>
+            {{/each}}
+        </select>
+        <button id="searchButton">Search</button>
+      </div>
+      
+      <div></div>
       <ul>
         <li class="nav-elements"><a href="/">Home</a></li>
         <li class="nav-elements"><a href="/newPost">SUBMIT YOUR CUT</a></li>
@@ -30,6 +49,12 @@
         {{/if}}
       </ul>
     </nav>
+    <div align="center" class="logo_container">
+      <div class="logo">
+        <img src="/images/lo.png" alt="">
+      </div>
+  </div>
+    
   </header>
   <main class="">
       <!-- Render the sub layout -->

@@ -1,7 +1,12 @@
 <div>
-    <h1>{{post.body}}</h1>
-    <p>By: {{post.user.name}} {{format_date createdAt}}</p>
     <img src="{{post.image_name}}" alt="{{post.body}}">
+    <p>{{body}}</p>
+    <p>Salon: {{post.hairdresser.hairdresser_name}}</p>
+    <p>Style: {{post.hairstyle.hairstyle_name}}</p> 
+    <p>Post by: {{post.user.name}} {{format_date createdAt}}</p>
+
+
+    
 
     <hr>
 </div>
