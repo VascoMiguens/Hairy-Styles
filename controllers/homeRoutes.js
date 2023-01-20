@@ -32,7 +32,6 @@ router.get("/", async (req, res) => {
     console.log(posts);
     res.render("homepage", {
       ...posts,
-      logged_in: req.session.logged_in,
       google_api_key: process.env.GOOGLE_API_KEY,
     });
   } catch (err) {
@@ -79,7 +78,20 @@ router.get("/profile", withAuth, async (req, res) => {
         include: [
           {
             model: Post,
+            include: [{
+                model: Hairdresser,
+               },
+               {
+                model: HairStyle,
+              },
+              ]
           },
+          // {
+          //   model: Hairdresser,
+          // },
+          //  {
+          //    model: HairStyle,
+          //  },
         ],
       });
       const user = userData.get({ plain: true });
@@ -116,8 +128,10 @@ router.get("/post/:id/edit", withAuth, async (req, res) => {
   }
 });
 
-router.get("/newpost", async (req, res) => {
-  res.render("new-post");
+router.get("/newpost", withAuth, async (req, res) => {
+  res.render("new-post", {
+    logged_in: req.session.logged_in,
+  });
 });
 
 router.get("/contacts", async (req, res) => {

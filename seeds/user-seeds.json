@@ -23,5 +23,55 @@
     "name": "David Moore",
     "email": "david.moore@email.com",
     "password": "plaintextpassword5"
+  },
+  {
+    "name": "John Smith",
+    "email": "johnsmith@example.com",
+    "password": "tempPass1"
+  },
+  {
+    "name": "Jane Doe",
+    "email": "janedoe@example.com",
+    "password": "tempPass2"
+  },
+  {
+    "name": "Michael Johnson",
+    "email": "michaeljohnson@example.com",
+    "password": "tempPass3"
+  },
+  {
+    "name": "Emily Williams",
+    "email": "emilywilliams@example.com",
+    "password": "tempPass4"
+  },
+  {
+    "name": "Matthew Jones",
+    "email": "matthewjones@example.com",
+    "password": "tempPass5"
+  },
+  {
+    "name": "Ashley Brown",
+    "email": "ashleybrown@example.com",
+    "password": "tempPass6"
+  },
+  {
+    "name": "Jacob Miller",
+    "email": "jacobmiller@example.com",
+    "password": "tempPass7"
+  },
+  {
+    "name": "Nicholas Davis",
+    "email": "nicholasdavis@example.com",
+    "password": "tempPass8"
+  },
+  {
+    "name": "Isabella Garcia",
+    "email": "isabellagarcia@example.com",
+    "password": "tempPass9"
+  },
+  {
+    "name": "William Rodriguez",
+    "email": "williamrodriguez@example.com",
+    "password": "tempPass10"
   }
 ]
