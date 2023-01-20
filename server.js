@@ -19,7 +19,7 @@ const sess = {
   secret: "Super secret secret",
   cookie: {
     path: "/",
-    maxAge: 300000,
+    maxAge: 3000000,
     httpOnly: true,
     secure: false,
     samesize: "strick",

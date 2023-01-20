@@ -1,4 +1,4 @@
-{{!-- <section id="homepage">
+<section id="homepage">
 
     <label for="search">Search</label>
     <input type="text" id="search" placeholder="Enter a haircut or style" />
@@ -6,19 +6,30 @@
 
     <!-- Google map -->
     <div id="map"></div>
+</section> 
 
-</section> --}}
+{{!-- {{#if posts.length}}  --}}
 
-{{#if posts.length}}
-<div>
+  <div>
     <h3>{{format_plural "Post" posts.length}}</h3>
     {{#each posts as |post|}}
-    <div>
-        <div>
-            <img src="{{post.image_name}}" alt="image uploaded by user" class="something" />
-            <p>{{body}}</p>
-        </div>
+ 
+      <div>
+        <img src="{{image_name}}" alt="image uploaded by user" class="something"/>
+        <p>{{body}}</p>
+        <p>Salon: {{hairdresser.hairdresser_name}}</p>
+        <p>Style: {{post.hairstyle.hairstyle_name}}</p> 
     </div>
+
     {{/each}}
-</div>
-{{/if}}
+    <p>test text</p>
+  </div> 
+{{!-- 
+{{/if}} --}}
+
+
+
+
+
+
+ 
