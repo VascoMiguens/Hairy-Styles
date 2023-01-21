@@ -22,7 +22,7 @@ const newFormHandler = async (event) => {
       if (response.ok) {
         const res = await response.json();
         console.log(res);
-        document.location.replace(`/post/${id}`);
+        document.location.replace(`/post/${post_id}`);
       } else {
         alert('Failed to create post');
       }

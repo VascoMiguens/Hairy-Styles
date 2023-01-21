@@ -3,7 +3,7 @@
 
  {{#if logged_in}}
     <form class="form new-project-form">
-      <div class="form-group">
+      <div>
             <label for="project-desc">comment:</label>
             <textarea class="form-input" id="comment-desc" name="comment-desc"></textarea>
           </div>
@@ -15,7 +15,7 @@
           <p>You must be logged in to comment:</p>
           <a href="/login">login</a>
           {{/if}}
-          </div>
+        </div>
     </form>
     
 <div class="comments">
@@ -28,3 +28,4 @@
     </div>
     {{/each}}
 </div>
+<script src="../js/single-post.js"></script>
