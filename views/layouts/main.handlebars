@@ -1,73 +1,69 @@
 <!DOCTYPE html>
 <html>
-<head>
 
+<head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Hairy Styles</title>
   <link rel="stylesheet" href="/css/hairystyles.css">
-
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Monoton&family=Montserrat:wght@900&display=swap" rel="stylesheet">
+  <title>Hairy Styles</title>
 </head>
-<meta name="viewport" content="width=device-width, initial-scale=1">
+
 <body>
- <header class="head">
-  <nav class="nav">
-
-    {{!-- below is commented out to see which search bar is better in the nav --}}
-
-      {{!-- <div class="search">
-      <input type="text" class="search-input" placeholder="find your cut"/>
-      </div> --}}
-{{!-- 
-      <form1>
-      <label for="haircut-search">Search for a haircut:</label>
-      <input type="text" id="search2" placeholder="e.g. shag haircut, bixie, wolf cut">
-      <button id="searchButton2" type="submit">Search</button>
-      </form1> --}}
-
-      <div class="search">
-        <label for="search">Search</label>
-        {{!-- <input type="text" id="search" placeholder="Choose a haircut or style" /> --}}
-        <select id="search" name="hairstyle">
-            {{#each hairstyles}}
-            <option value="{{id}}">{{hairstyle_name}}</option>
-            {{/each}}
-        </select>
-        <button id="searchButton">Search</button>
-      </div>
-      
-      <div></div>
-      <ul>
-        <li class="nav-elements"><a href="/">Home</a></li>
-        <li class="nav-elements"><a href="/newPost">SUBMIT YOUR CUT</a></li>
-        <li class="nav-elements"><a href="/contacts">CONTACTS</a></li>
-        {{#if logged_in}}
-        <li class="nav-elements"><a href="/profile">Profile</a></li>
-        <li class="nav-elements" id="logout"><a href="/">LogOut</a></li>
-        {{else}}
-        <li class="nav-elements"><a href="/login">SIGN IN</a></li>
-        {{/if}}
-      </ul>
-    </nav>
-    <div align="center" class="logo_container">
-      <div class="logo">
-        <img src="/images/lo.png" alt="">
-      </div>
-  </div>
-    
+  <header>
+    <div class="header-inner">
+      <img class="logo" src="/images/logo-3.png" alt="logo of pink map marker and red pair of scissors">
+      <nav>
+        <ul>
+          <li>
+            <select id="search" name="hairstyle">
+              {{#each hairstyle}}
+              <option value="{{id}}">{{hairstyle_name}}</option>
+              {{/each}}
+            </select>
+            <button id="searchButton">Search</button>
+          </li>
+          <li>
+            <a href="/">Home</a>
+          </li>
+          <li>
+            <a href="/newPost">Submit Your Cut</a>
+          </li>
+          <li>
+            <a href="/contacts">Contacts</a>
+          </li>
+          {{#if logged_in}}
+          <li>
+            <a href="/profile">Profile</a>
+          </li>
+          <li id="logout">
+            <a href="/">Log Out</a>
+          </li>
+          {{else}}
+          <li>
+            <a href="/login">Log In</a>
+          </li>
+          {{/if}}
+        </ul>
+      </nav>
+    </div>
   </header>
-  <main class="">
-      <!-- Render the sub layout -->
-      {{{ body }}}
-    </main>
-    <footer>    
-    </footer>
-  <!-- Render script for logged in users only -->
+
+  <main>
+    {{{ body }}}
+  </main>
+
+
+  <footer>
+  </footer>
+
   {{#if logged_in}}
   <script src="/js/logout.js"></script>
   {{/if}}
 
-  
 </body>
 <script src="/js/hairystyles.js"></script>
 <script src="https://maps.googleapis.com/maps/api/js?key={{google_api_key}}&callback=initMap&libraries=places&v=weekly" defer></script>

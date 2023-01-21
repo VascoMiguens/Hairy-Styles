@@ -28,6 +28,7 @@ function initHomepage() {
     var searchElement = document.getElementById('search');
     var searchButtonElement = document.getElementById('searchButton');
 
+
     var map = createMap(mapElement);
     var markers = [];
     var infoWindow = new google.maps.InfoWindow();
@@ -126,7 +127,7 @@ function initHomepage() {
                     anchor: marker,
                     map,
                 });
-    
+
             });
 
             markers.push(marker);
@@ -137,11 +138,16 @@ function initHomepage() {
 
     }
 
-
-
     searchButtonElement.addEventListener('click', searchHairStyles);
 
-};
+    document.getElementById("search")
+    .addEventListener("keydown", (event) => {
+    event.preventDefault();
+    if (event.key === 'Enter') {
+        document.getElementById("searchButton").click();
+    }
+});
+}
 
 function initUpload() {
     var mapElement = document.getElementById('map');
@@ -211,6 +217,14 @@ function initUpload() {
     }
 
     searchButtonElement.addEventListener('click', searchPlaces);
+
+    document.getElementById("search")
+    .addEventListener("keydown", (event) => {
+    event.preventDefault();
+    if (event.key === 'Enter') {
+        document.getElementById("searchButton").click();
+    }
+});
 
 }
 
