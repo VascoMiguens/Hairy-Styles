@@ -70,11 +70,16 @@ router.get("/post/:id", async (req, res) => {
         },
       ],
     });
-    
+    const newHairstyle = await HairStyle.findAll({});
+    const hairstyle = newHairstyle.map((hairstyle) =>
+      hairstyle.get({ plain: true })
+    );
     const post = postData.get({ plain: true });
     console.log(post);
     res.render("single-post", {
       post,
+      hairstyle: hairstyle,
+      logged_in: req.session.logged_in,
     });
   } catch (err) {
     res.status(500).json(err);
@@ -102,11 +107,16 @@ router.get("/profile", withAuth, async (req, res) => {
           
         ],
       });
+      const newHairstyle = await HairStyle.findAll({});
+    const hairstyle = newHairstyle.map((hairstyle) =>
+      hairstyle.get({ plain: true })
+    );
       const user = userData.get({ plain: true });
       console.log(user);
       res.render("profile", {
         ...user,
         logged_in: req.session.logged_in,
+        hairstyle: hairstyle,
       });
     } catch (err) {
       res.status(500).json(err);
@@ -124,10 +134,15 @@ router.get("/post/:id/edit", withAuth, async (req, res) => {
         },
       ],
     });
+    const newHairstyle = await HairStyle.findAll({});
+    const hairstyle = newHairstyle.map((hairstyle) =>
+      hairstyle.get({ plain: true })
+    );
     const post = postData.get({ plain: true });
     console.log(post);
     res.render("edit-post", {
       ...post,
+      hairstyle: hairstyle,
       logged_in: req.session.logged_in,
       isOwner: req.session.user_id === post.user_id,
     });
@@ -160,7 +175,12 @@ router.get("/newpost", withAuth, async (req, res) => {
 });
 
 router.get("/contacts", async (req, res) => {
+  const newHairstyle = await HairStyle.findAll({});
+  const hairstyle = newHairstyle.map((hairstyle) =>
+    hairstyle.get({ plain: true })
+  );
   res.render("contact", {
+    hairstyle: hairstyle,
     logged_in: req.session.logged_in,
   });
 });
@@ -168,25 +188,17 @@ router.get("/contacts", async (req, res) => {
 router.get("/search/:id", async (req, res) => {
     try {
       const searchData = await HairStyle.findByPk(req.params.id, {
-        // include: [
-        //   {
-        //     model: Post,
-        //     include: [{
-        //         model: Hairdresser,
-        //        },
-        //        {
-        //         model: HairStyle,
-        //       },
-        //       ]
-        //   },
-          
-        // ],
+    
       });
-  
+      const newHairstyle = await HairStyle.findAll({});
+    const hairstyle = newHairstyle.map((hairstyle) =>
+      hairstyle.get({ plain: true })
+    );
       const search = searchData.get({ plain: true });
       console.log(search);
       res.render("search", {
         ...search,
+        hairstyle: hairstyle,
         logged_in: req.session.logged_in,
       });
     } catch (err) {
@@ -199,11 +211,25 @@ router.get("/login", async (req, res) => {
     res.redirect("/");
     return;
   }
-  res.render("login");
+  const newHairstyle = await HairStyle.findAll({});
+    const hairstyle = newHairstyle.map((hairstyle) =>
+      hairstyle.get({ plain: true })
+    );
+  res.render("login", {
+    hairstyle: hairstyle,
+    logged_in: req.session.logged_in,
+  });
 });
 
 router.get("/signup", async (req, res) => {
-  res.render("signup");
+  const newHairstyle = await HairStyle.findAll({});
+    const hairstyle = newHairstyle.map((hairstyle) =>
+      hairstyle.get({ plain: true })
+    );
+  res.render("signup",{
+    hairstyle: hairstyle,
+    logged_in: req.session.logged_in,
+  });
 });
 
 module.exports = router;
