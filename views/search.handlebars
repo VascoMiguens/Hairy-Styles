@@ -1,13 +1,13 @@
 <h3>Trending {{format_plural "Post" posts.length}}:</h3>
     <div class="homepage-post-container">
          <div class="homepage-posts">
-             {{#each posts as |post|}}
+             {{#each post}}
  
             <div class="each-hp-post">
-               <a href="/post/{{post.id}}">
+               <a href="/post/{{id}}">
                 <img src="{{image_name}}" alt="image uploaded by user" class="something"/>
                 <p>{{body}}</p>
-                <p>Salon: {{hairdresser.hairdresser_name}}</p>
+                <p>Salon: {{post.hairdresser.hairdresser_name}}</p>
                 <p>Style: {{post.hairstyle.hairstyle_name}}</p> 
                 <p>Post by: {{user.name}} {{format_date createdAt}}</p>
                </a> 

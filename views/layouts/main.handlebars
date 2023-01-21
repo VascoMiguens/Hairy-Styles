@@ -29,7 +29,7 @@
         <label for="search">Search</label>
         {{!-- <input type="text" id="search" placeholder="Choose a haircut or style" /> --}}
         <select id="search" name="hairstyle">
-            {{#each hairstyle}}
+            {{#each hairstyles}}
             <option value="{{id}}">{{hairstyle_name}}</option>
             {{/each}}
         </select>
@@ -71,4 +71,10 @@
 </body>
 <script src="/js/hairystyles.js"></script>
 <script src="https://maps.googleapis.com/maps/api/js?key={{google_api_key}}&callback=initMap&libraries=places&v=weekly" defer></script>
+<script>
+  document.getElementById("searchButton").addEventListener("click", function () {
+    const hairstyleId = document.getElementById("search").value;
+    window.location.href = `/search/${hairstyleId}`;
+  });
+</script>
 </html>

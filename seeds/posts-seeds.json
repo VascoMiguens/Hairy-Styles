@@ -1,15 +1,88 @@
 [
     {
         "body": "Just left the salon with the most amazing haircut! Thank you hairdresser's name for always making me feel fabulous. #lovemyhair #newdo #happyclient",
-        "image_name": "image1"
+        "image_name": "temp/1674231626221.jpg"
     },
     {
         "body": "Had a fantastic experience at [salon name] today. The staff was so friendly and my stylist [hairdresser's name] did an amazing job with my color. Highly recommend this salon! #hairgoals #newcolor #happycustomer",
-        "image_name": "image2"
+        "image_name": "temp/1674232522234.jpg"
     },
     {
         "body": "Feeling like a brand new person after my visit to [salon name]. [hairdresser's name] worked magic on my hair and I couldn't be happier with the results. Thanks for the great service! #transformation #hairmagic #happyclient",
-        "image_name" : "image3"
+        "image_name" : "temp/1674232565744.jpg"
+    },
+    {
+        "body": "I had an amazing experience at [salon name] today! My hairdresser [hairstylist name] was so friendly and professional. She really listened to my hair goals and gave me the perfect cut and color. I am so happy with the results and I will definitely be returning!",
+        "image_name" : "image4"
+    },
+    {
+        "body": "I had a terrible experience at [salon name] today. My hairdresser [hairstylist name] seemed uninterested in my hair needs and rushed through my cut and color. When I got home, I realized that my hair was uneven and the color was not what I had asked for. I am extremely disappointed and will not be returning.",
+        "image_name" : "image5"
+    },
+    {
+        "body": "I went to [salon name] today for a haircut and color. My hairdresser [hairstylist name] was polite and did a decent job, but I didn't feel like there was much of a personal touch. My hair looks fine, but nothing extraordinary. Overall, it was an average experience, but I'm not sure if I would return.",
+        "image_name" : "image6"
+    },
+    {
+        "body": "I had such a great time at [salon name] today! My hairstylist [hairstylist name] was amazing, they took the time to understand exactly what I wanted and gave me an even better look than I had imagined. The salon itself was also very clean and inviting, and the service was top-notch. I'll definitely be coming back!",
+        "image_name" : "image7"
+    },
+    {
+        "body": "I had a really disappointing experience at [salon name] today. My hairstylist [hairstylist name] was not attentive at all, and I felt like they were just going through the motions. The cut and color I received were not what I wanted, and I left the salon feeling very unhappy. I will not be returning.",
+        "image_name" : "image8"
+    },
+    {
+        "body": "I went to [salon name] for a haircut today. The service was fine, my hairstylist [hairstylist name] was polite and did a decent job on my hair. The salon itself was clean and well-maintained. However, I didn't have any exceptional service or experience, it was just a regular salon visit, and I'm not sure if I will go back again or not.",
+        "image_name" : "image9"
+    },
+    {
+        "body": "I had such an amazing experience at [salon name]! My stylist [hairstylist name] was so friendly and professional, she took the time to understand my hair goals and gave me a beautiful cut and color. The salon atmosphere was also very relaxing and welcoming. I am extremely happy with my new look and I will definitely be returning!",
+        "image_name" : "image10"
+    },
+    {
+        "body": "I had a terrible time at [salon name]. My stylist [hairstylist name] was very unprofessional, they didn't listen to what I wanted and rushed through my service. I left the salon with a bad haircut and uneven color. I am extremely disappointed and will not be returning.",
+        "image_name" : "image11"
+    },
+    {
+        "body": "I love my new haircut! The stylist really listened to what I wanted and gave me exactly the look I was going for.",
+        "image_name" : "image12"
+    },
+    {
+        "body": "I've been coming to this salon for years and I've never been disappointed. The staff is always friendly and professional.",
+        "image_name" : "image13"
+    },
+    {
+        "body": "I got my hair done for a special event and received so many compliments. I felt like a million bucks!",
+        "image_name" : "image14"
+    },
+    {
+        "body": "The color and highlights turned out even better than I imagined. Thank you for giving me the perfect look.",
+        "image_name" : "image15"
+    },
+    {
+        "body": "I appreciate how clean and well-maintained the salon is. It's always a pleasant experience.",
+        "image_name" : "image16"
+    },
+    {
+        "body": "I was hesitant to try something new with my hair but I'm so glad I did! The stylist gave me a fresh new look that I love.",
+        "image_name" : "image17"
+    },
+    {
+        "body": "I've been to a lot of salons over the years but this one is by far the best. I always leave feeling great about my hair.",
+        "image_name" : "image18"
+    },
+    {
+        "body": "I was really pleased with the service I received. The stylist took the time to understand what I wanted and gave me great advice.",
+        "image_name" : "image19"
+    },
+    {
+        "body": "I've never felt rushed or pressured to make a decision. The stylist gave me a lot of options and helped me choose the best one.",
+         "image_name" : "image20"
+    },
+    {
+        "body": "I was a new customer and I was greeted with a warm welcome. I felt comfortable and relaxed throughout my visit.",
+        "image_name" : "image21"
     }
+    
 
 ]
