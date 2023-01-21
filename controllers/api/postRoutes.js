@@ -8,21 +8,43 @@ router.post(
   withAuth,
   upload.single("image"),
   async (req, res) => {
-    console.log(req.body);
-    console.log(req.session.user_id);
     try {
-      console.log(req.body);
+      let newHairdresserId;
+      let newHairstyleId;
+      if (req.body.hairdresser === "other") {
+        // Create a new hairdresser
+        const newHairdresser = await Hairdresser.create({
+          hairdresser_name: req.body.hairdresserName,
+          location: req.body.hairdresserLocation,
+        });
+        newHairdresserId = newHairdresser.id;
+      } else {
+        newHairdresserId = req.body.hairdresser;
+      }
+
+      if (req.body.hairstyle === "other") {
+        // Create a new hairstyle
+        const newHairstyle = await HairStyle.create({
+          hairstyle_name: req.body.hairstyleName,
+        });
+        newHairstyleId = newHairstyle.id;
+      } else {
+        newHairstyleId = req.body.hairstyle;
+      }
+
+      const imagePath = `temp/${req.file.filename}`;
+
       const newImage = await Post.create({
-        image_name: req.file.path,
+        image_name: imagePath,
         body: req.body.textInput,
         user_id: req.session.user_id,
-        hairdresser_id: req.body.hairdresser,
-        hairstyle_id: req.body.hairstyle,
+        hairdresser_id: newHairdresserId,
+        hairstyle_id: newHairstyleId,
       });
 
       console.log(newImage);
 
-      res.status(200).json(newImage);
+      res.redirect("/profile");
     } catch (err) {
       res.status(500).json(err);
     }
@@ -32,9 +54,10 @@ router.post(
 router.put("/:id", withAuth, async (req, res) => {
   try {
     const updateData = {
-      body: req.body,
+      body: req.body.body,
     };
     console.log(updateData);
+
     const postData = await Post.update(updateData, {
       where: {
         id: req.params.id,
@@ -54,7 +77,7 @@ router.put("/:id", withAuth, async (req, res) => {
 
 router.delete("/:id", withAuth, async (req, res) => {
   try {
-    const postData = await Project.destroy({
+    const postData = await Post.destroy({
       where: {
         id: req.params.id,
         user_id: req.session.user_id,

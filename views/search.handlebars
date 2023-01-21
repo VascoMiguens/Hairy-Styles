@@ -1,14 +1,18 @@
-<h3>Trending {{format_plural "Post" posts.length}}:</h3>
+<h3>Can't find your inspo below?! Keep Searching ....or <a href="/login">LOGIN</a> / <a href="/signup">SIGN UP</a> to post your own cut!</p>
+
+
+
+<h3>{{format_plural "Post" posts.length}}:</h3>
     <div class="homepage-post-container">
          <div class="homepage-posts">
-             {{#each posts as |post|}}
+             {{#each post}}
  
             <div class="each-hp-post">
-               <a href="/post/{{post.id}}">
-                <img src="{{image_name}}" alt="image uploaded by user" class="something"/>
+               <a href="/post/{{id}}">
+                <img src="/{{image_name}}" alt="image uploaded by user" class="hair-image"/>
                 <p>{{body}}</p>
                 <p>Salon: {{hairdresser.hairdresser_name}}</p>
-                <p>Style: {{post.hairstyle.hairstyle_name}}</p> 
+                <p>Style: {{hairstyle.hairstyle_name}}</p> 
                 <p>Post by: {{user.name}} {{format_date createdAt}}</p>
                </a> 
             </div>

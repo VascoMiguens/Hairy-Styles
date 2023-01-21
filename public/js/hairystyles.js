@@ -29,14 +29,12 @@ function initHomepage() {
     var searchButtonElement = document.getElementById('searchButton');
 
 
-
     var map = createMap(mapElement);
     var markers = [];
     var infoWindow = new google.maps.InfoWindow();
 
     function searchHairStyles() {
         var searchText = searchElement.value;
-        console.log(searchText);
         console.log('Searching for hairstyles matching: ', searchText);
         // TODO fetch /api/search?query=xxx
 

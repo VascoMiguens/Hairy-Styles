@@ -56,19 +56,21 @@
     {{{ body }}}
   </main>
 
+
   <footer>
   </footer>
-
 
   {{#if logged_in}}
   <script src="/js/logout.js"></script>
   {{/if}}
 
-  <script src="/js/hairystyles.js"></script>
-  <script
-    src="https://maps.googleapis.com/maps/api/js?key={{google_api_key}}&callback=initMap&libraries=places&v=weekly"
-    defer></script>
-  </main>
 </body>
-
+<script src="/js/hairystyles.js"></script>
+<script src="https://maps.googleapis.com/maps/api/js?key={{google_api_key}}&callback=initMap&libraries=places&v=weekly" defer></script>
+<script>
+  document.getElementById("searchButton").addEventListener("click", function () {
+    const hairstyleId = document.getElementById("search").value;
+    window.location.href = `/search/${hairstyleId}`;
+  });
+</script>
 </html>
