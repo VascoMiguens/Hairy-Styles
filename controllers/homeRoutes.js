@@ -70,6 +70,7 @@ router.get("/post/:id", middlewareHairstyle, async (req, res) => {
     return;
   }
     const post = postData.get({ plain: true });
+    console.log(post);
     res.render("single-post", {
       post,
       logged_in: req.session.logged_in,
@@ -139,8 +140,16 @@ router.get(
 
 router.get("/newpost", withAuth, middlewareHairstyle, async (req, res) => {
   try {
-    const newHairstyle = await HairStyle.findAll({});
-    const newHairdresser = await Hairdresser.findAll({});
+    const newHairstyle = await HairStyle.findAll({
+      order: [
+        ['hairstyle_name', 'ASC']
+      ]
+    });
+    const newHairdresser = await Hairdresser.findAll({
+      order: [
+        ['hairdresser_name', 'ASC']
+      ]
+    });
     const hairstyle = newHairstyle.map((hairstyle) =>
       hairstyle.get({ plain: true })
     );
@@ -213,5 +222,7 @@ router.get("/signup", middlewareHairstyle, async (req, res) => {
     logged_in: req.session.logged_in,
   });
 });
+
+
 
 module.exports = router;
