@@ -39,6 +39,7 @@ router.get("/", middlewareHairstyle, async (req, res) => {
 });
 
 router.get("/post/:id", middlewareHairstyle, async (req, res) => {
+  
   try {
     const postData = await Post.findByPk(req.params.id, {
       include: [
@@ -63,6 +64,11 @@ router.get("/post/:id", middlewareHairstyle, async (req, res) => {
         },
       ],
     });
+
+    if (!postData) {
+      res.redirect(301, '/profile')
+    return;
+  }
     const post = postData.get({ plain: true });
     res.render("single-post", {
       post,
@@ -131,7 +137,7 @@ router.get(
   }
 );
 
-router.get("/newpost", withAuth, async (req, res) => {
+router.get("/newpost", withAuth, middlewareHairstyle, async (req, res) => {
   try {
     const newHairstyle = await HairStyle.findAll({});
     const newHairdresser = await Hairdresser.findAll({});

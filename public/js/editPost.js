@@ -6,21 +6,22 @@ const updatePostHandler = async (event) => {
       const id = event.target.getAttribute('data-id');
       console.log(id);
   
-    const postNameUpdate = document.querySelector('#post-name-update').value.trim();
+    
     const descriptionUpdate = document.querySelector('#post-desc-update').value.trim();
-    console.log(postNameUpdate);
+    
     console.log(descriptionUpdate);
   
       const response = await fetch(`/api/posts/${id}`, {
         method: 'PUT',
-        body: JSON.stringify({ post_title: postNameUpdate, post_body: descriptionUpdate }),
+        body: JSON.stringify({ body: descriptionUpdate }),
         headers: {
           'Content-Type': 'application/json',
         },
       });
+      console.log(response);
   
       if (response.ok) {
-       document.location.replace('/dashboard');
+       document.location.replace(`/post/${id}`);
       } else {
         alert('Failed to update project');
       }
@@ -36,7 +37,7 @@ const updatePostHandler = async (event) => {
       });
   
       if (response.ok) {
-        document.location.replace('../dashboard');
+        document.location.replace('/profile');
       } else {
         alert('Failed to delete project');
       }
