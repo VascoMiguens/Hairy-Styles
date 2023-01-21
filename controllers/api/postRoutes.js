@@ -54,9 +54,10 @@ router.post(
 router.put("/:id", withAuth, async (req, res) => {
   try {
     const updateData = {
-      body: req.body,
+      body: req.body.body,
     };
     console.log(updateData);
+
     const postData = await Post.update(updateData, {
       where: {
         id: req.params.id,
@@ -76,7 +77,7 @@ router.put("/:id", withAuth, async (req, res) => {
 
 router.delete("/:id", withAuth, async (req, res) => {
   try {
-    const postData = await Project.destroy({
+    const postData = await Post.destroy({
       where: {
         id: req.params.id,
         user_id: req.session.user_id,
