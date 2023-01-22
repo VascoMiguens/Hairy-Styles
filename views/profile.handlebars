@@ -6,6 +6,7 @@
     <h3>{{format_plural "Post" posts.length}}</h3>
     {{#each posts as |post|}}
     <div class="each-hp-post">
+      <div class="profile-post" data-id="/post/{{post.id}}/edit">
         <img src="/temp/{{image_name}}" alt="image uploaded by user" class="hair-image"/>
         <a class="post-link" href="/post/{{post.id}}">
             <div id="style">{{post.hairstyle.hairstyle_name}} @</div>

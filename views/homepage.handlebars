@@ -4,7 +4,6 @@
 
 {{!-- {{#if posts.length}} --}}
 
-
 <h2>Your Hair, Your Way</h2>
 
 <div id="map"></div>
@@ -13,10 +12,11 @@
     {{#each posts as |post|}}
 
     <div class="each-hp-post">
-        <img src="/temp/{{image_name}}" alt="image uploaded by user" />
+        <img src="/temp/{{image_name}}" alt="image uploaded by user" class="hair-image" />
         <a class="post-link" href="/post/{{post.id}}">
             <div id="style">{{post.hairstyle.hairstyle_name}} @</div>
             <div id="salon">{{hairdresser.hairdresser_name}}</div>
+            <p data-location="{{hairdresser.location}}">Location: {{hairdresser.location}}</p>
             <p>{{body}}</p>
             <div id="postby">{{user.name}} - {{format_date createdAt}}</div>
         </a>
@@ -24,4 +24,16 @@
 
     {{/each}}
 </div>
-</div>
+
+<script>
+    //get all the post elements
+    var postElements = document.querySelectorAll(".each-hp-post");
+    postElements.forEach(function (element) {
+        element.addEventListener("click", function () {
+            //get the post id from data-id attribute
+            var postId = this.dataset.id;
+            //redirect to the post page
+            window.location.href = postId;
+        });
+    });
+</script>
