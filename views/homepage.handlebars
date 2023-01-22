@@ -11,24 +11,28 @@
     <div class="homepage-post-container">
         <div class="homepage-posts">
             {{#each posts as |post|}}
-
-            <div class="each-hp-post">
-
-                <a href="/post/{{post.id}}">
-                    <img src="{{image_name}}" alt="image uploaded by user" class="hair-image" />
+            <div class="each-hp-post" data-id="/post/{{post.id}}">
+                    <img src="/temp/{{image_name}}" alt="image uploaded by user" class="hair-image" />
                     <p>{{body}}</p>
                     <p>Salon: {{hairdresser.hairdresser_name}}</p>
-                    <p>Location: {{hairdresser.location}}</p>
+                    <p data-location="{{hairdresser.location}}">Location: {{hairdresser.location}}</p>
                     <p>Style: {{post.hairstyle.hairstyle_name}}</p>
                     <p>Post by: {{user.name}} {{format_date createdAt}}</p>
-                </a>
-
             </div>
 
             {{/each}}
         </div>
     </div>
 </div>
-</div>
-{{!--
-{{/if}} --}}
+<script>
+    //get all the post elements
+    var postElements = document.querySelectorAll(".each-hp-post");
+    postElements.forEach(function (element) {
+        element.addEventListener("click", function () {
+            //get the post id from data-id attribute
+            var postId = this.dataset.id;
+            //redirect to the post page
+            window.location.href = postId;
+        });
+    });
+</script>

@@ -6,7 +6,7 @@
     <h3>{{format_plural "Post" posts.length}}</h3>
     {{#each posts as |post|}}
     <div>
-      <div>
+      <div class="profile-post" data-id="/post/{{post.id}}/edit">
         <img src="/temp/{{image_name}}" alt="image uploaded by user" class="hair-image"/>
         <p>{{body}}</p>
         <p>Salon: {{post.hairdresser.hairdresser_name}}</p>
