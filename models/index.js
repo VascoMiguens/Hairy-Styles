@@ -55,25 +55,40 @@ Hairdresser.belongsTo(Post, {
   foreignKey: "hairdresser_id",
 });
 
-Hairdresser.belongsToMany(HairStyle, {
-  through: {
-    model: StyleTag,
-    unique: false,
-  },
+HairStyle.hasMany(Post, {
+  foreignKey: "hairstyle_id",
+  onDelete: "CASCADE",
+});
+Post.belongsTo(HairStyle, {
+  foreignKey: "hairstyle_id",
+});
+Hairdresser.hasMany(Post, {
   foreignKey: "hairdresser_id",
-  //Alias for when data is retrieved
-  as: "salon_tag",
+  onDelete: "CASCADE",
+});
+Post.belongsTo(Hairdresser, {
+  foreignKey: "hairdresser_id",
 });
 
-HairStyle.belongsToMany(Hairdresser, {
-  through: {
-    model: StyleTag,
-    unique: false,
-  },
-  foreignKey: "hairstyle_id",
-  //Alias for when data is retrieved
-  as: "style_tags",
-});
+// Hairdresser.belongsToMany(HairStyle, {
+//   through: {
+//     model: StyleTag,
+//     unique: false,
+//   },
+//   foreignKey: "hairdresser_id",
+//   //Alias for when data is retrieved
+//   as: "salon_tag",
+// });
+
+// HairStyle.belongsToMany(Hairdresser, {
+//   through: {
+//     model: StyleTag,
+//     unique: false,
+//   },
+//   foreignKey: "hairstyle_id",
+//   //Alias for when data is retrieved
+//   as: "style_tags",
+// });
 
 module.exports = {
   Comment,

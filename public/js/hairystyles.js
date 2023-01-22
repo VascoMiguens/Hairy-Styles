@@ -140,13 +140,13 @@ function initHomepage() {
 
     searchButtonElement.addEventListener('click', searchHairStyles);
 
-    document.getElementById("search")
-    .addEventListener("keydown", (event) => {
-    event.preventDefault();
-    if (event.key === 'Enter') {
-        document.getElementById("searchButton").click();
-    }
-});
+    // document.getElementById("search")
+    // .addEventListener("keydown", (event) => {
+    // event.preventDefault();
+    // if (event.key === 'Enter') {
+    //     document.getElementById("searchButton").click();
+   // }
+//});
 }
 
 function initUpload() {
