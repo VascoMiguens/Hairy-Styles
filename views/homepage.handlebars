@@ -1,36 +1,32 @@
-    <section id="homepage">
+<section id="homepage">
     <!-- Google map -->
+</section>
+
+{{!-- {{#if posts.length}} --}}
+
+
+<h2>Trending {{format_plural "Post" posts.length}}</h2>
     <div id="map"></div>
-</section> 
-
-{{!-- {{#if posts.length}}  --}}
-
-  
-<h3>Trending {{format_plural "Post" posts.length}}:</h3>
+<div class="scroller">
     <div class="homepage-post-container">
-         <div class="homepage-posts">
-             {{#each posts as |post|}}
- 
+        <div class="homepage-posts">
+            {{#each posts as |post|}}
+
             <div class="each-hp-post">
-               <a href="/post/{{post.id}}">
-                <img src="{{image_name}}" alt="image uploaded by user" class="hair-image"/>
-                <p>{{body}}</p>
-                <p>Salon: {{hairdresser.hairdresser_name}}</p>
-                <p>Location: {{hairdresser.location}}</p>
-                <p>Style: {{post.hairstyle.hairstyle_name}}</p> 
-                <p>Post by: {{user.name}} {{format_date createdAt}}</p>
-               </a> 
+                <a href="/post/{{post.id}}">
+                    <img src="{{image_name}}" alt="image uploaded by user" class="hair-image" />
+                    <p>{{body}}</p>
+                    <p>Salon: {{hairdresser.hairdresser_name}}</p>
+                    <p>Location: {{hairdresser.location}}</p>
+                    <p>Style: {{post.hairstyle.hairstyle_name}}</p>
+                    <p>Post by: {{user.name}} {{format_date createdAt}}</p>
+                </a>
             </div>
 
-             {{/each}}
+            {{/each}}
         </div>
-      </div>
-  </div> 
-{{!-- 
+    </div>
+</div>
+</div>
+{{!--
 {{/if}} --}}
-
-
-
-
-
- 

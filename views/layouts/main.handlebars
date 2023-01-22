@@ -17,14 +17,16 @@
     <div class="header-inner">
       <img class="logo" src="/images/logo-3.png" alt="logo of pink map marker and red pair of scissors">
       <nav>
+        
         <ul>
           <li>
+           <label for="search">Search</label>
             <select id="search" name="hairstyle">
-              {{#each hairstyle}}
+              {{#each hairstyles}}
               <option value="{{id}}">{{hairstyle_name}}</option>
               {{/each}}
-            </select>
-            <button id="searchButton">Search</button>
+           </select>
+           <button id="searchButton">Search</button>
           </li>
           <li>
             <a href="/">Home</a>
