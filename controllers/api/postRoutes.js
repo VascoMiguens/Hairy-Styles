@@ -32,7 +32,7 @@ router.post(
         newHairstyleId = req.body.hairstyle;
       }
 
-      const imagePath = `temp/${req.file.filename}`;
+      const imagePath = `${req.file.filename}`;
 
       const newImage = await Post.create({
         image_name: imagePath,
