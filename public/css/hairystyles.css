@@ -1,6 +1,6 @@
 :root {
-  --orange1: #ff7700a9;
-  --orange2: #f4a449c0;
+  --orange1: #e44d55b6;
+  --orange2: #f4a449af;
 }
 
 body {
@@ -9,13 +9,13 @@ body {
   font-size: 12px;
   font-weight: 700;
   text-transform: uppercase;
-  color:white;
+  color: white;
   line-height: 1.5;
   margin: 1px;
   background: url(../images/background.png) no-repeat;
-
-  background-size: cover;
+  background-size: 100% 100%;
   background-position-y: center;
+  background-attachment: fixed;
 }
 
 h2 {
@@ -95,13 +95,13 @@ header nav ul li {
   margin: 0;
 }
 
-header nav ul li select{
+header nav ul li select {
   background-color: white;
   color: var(--orange1);
   border: 1em;
   width: 200px;
   height: 24px;
-  font-family: 'Arial',sans-serif;
+  font-family: 'Arial', sans-serif;
   font-size: 12px;
   text-transform: uppercase;
   cursor: pointer;
@@ -116,15 +116,15 @@ button {
   font-family: 'Arial', sans-serif;
   font-size: 12px;
   border-style: solid;
-  color:white;
-  background-color:var(--orange1);
-  font-weight:bolder;
+  color: white;
+  background-color: var(--orange1);
+  font-weight: bolder;
   border-color: white;
   border-radius: 5px;
 }
 
-Button:hover{
-  cursor:pointer;
+Button:hover {
+  cursor: pointer;
 }
 
 .form {
@@ -144,21 +144,37 @@ Button:hover{
 }
 
 #map {
-  width: 100%;
+  margin: auto;
+  width: 92%;
   height: 250px;
-  }
+}
+
+.homepage-post-container {
+  background-color: var(--mid-2);
+  display: flex;
+  flex-direction: column;
+  margin: 10px;
+  border-radius: 10px;
+  padding: 10px;
+}
+
+.homepage-posts {
+  flex: 4;
+  /*flex grow of 4*/
+  display: flex;
+  width: 100%;
+  flex-wrap: wrap;
+  justify-content: center;
+}
 
 .each-hp-post {
-  background-color: var(--light);
   border-style: solid;
-  border-color: var(--dark);
+  border-color: white;
   border-width: 3px;
   border-radius: 10px;
-  padding:10px;
-  margin:8px;
-  font-size:17px;
-  font-family:'Lucida Sans Unicode', 'Lucida Sans', Arial, sans-serif;
-  flex:0 0 300px;
+  padding: 10px;
+  margin: 8px;
+  flex: 0 0 300px;
   max-width: 400px;
   color: black;
   text-decoration: none;
@@ -167,9 +183,18 @@ Button:hover{
 .hair-image {
   margin: auto;
   margin-bottom: 20px;
-  width:250px;
-  height:200px;
-  object-fit: cover;/*images to fit the given dimension keeping aspect ratio*/
-  overflow: hidden; 
+  width: 250px;
+  height: 200px;
+  object-fit: cover;
+  /*images to fit the given dimension keeping aspect ratio*/
+  overflow: hidden;
+  justify-content: center;
 }
 
+.scroller {
+  width: 100%;
+  height: 250px;
+  overflow-y: scroll;
+  scrollbar-color: var(--orange2);
+  scrollbar-width: thin;
+}
