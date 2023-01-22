@@ -5,30 +5,23 @@
 {{!-- {{#if posts.length}} --}}
 
 
-<h2>Trending {{format_plural "Post" posts.length}}</h2>
-    <div id="map"></div>
-<div class="scroller">
-    <div class="homepage-post-container">
-        <div class="homepage-posts">
-            {{#each posts as |post|}}
+<h2>Your Hair, Your Way</h2>
 
-            <div class="each-hp-post">
+<div id="map"></div>
+<h3>Take part in the conversation.</h3>
+<div class="homepage-posts">
+    {{#each posts as |post|}}
 
-                <a href="/post/{{post.id}}">
-                    <img src="{{image_name}}" alt="image uploaded by user" class="hair-image" />
-                    <p>{{body}}</p>
-                    <p>Salon: {{hairdresser.hairdresser_name}}</p>
-                    <p>Location: {{hairdresser.location}}</p>
-                    <p>Style: {{post.hairstyle.hairstyle_name}}</p>
-                    <p>Post by: {{user.name}} {{format_date createdAt}}</p>
-                </a>
-
-            </div>
-
-            {{/each}}
-        </div>
+    <div class="each-hp-post">
+        <img src="/temp/{{image_name}}" alt="image uploaded by user" />
+        <a class="post-link" href="/post/{{post.id}}">
+            <div id="style">{{post.hairstyle.hairstyle_name}} @</div>
+            <div id="salon">{{hairdresser.hairdresser_name}}</div>
+            <p>{{body}}</p>
+            <div id="postby">{{user.name}} - {{format_date createdAt}}</div>
+        </a>
     </div>
+
+    {{/each}}
 </div>
 </div>
-{{!--
-{{/if}} --}}

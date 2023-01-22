@@ -1,31 +1,31 @@
-
 {{> post-partial post=post}}
 
- {{#if logged_in}}
-    <form class="form new-project-form">
-      <div>
-            <label for="project-desc">comment:</label>
-            <textarea class="form-input" id="comment-desc" name="comment-desc"></textarea>
-          </div>
-          <div class="form-group">
-            <button type="submit" class="btn btn-primary">Comment Now</button>
-          </div>
-          <div>
-          {{else}}
-          <p>You must be logged in to comment:</p>
-          <a href="/login">login</a>
-          {{/if}}
-        </div>
-    </form>
-    
+<h3>Comments</h3>
 <div class="comments">
-    <h2>Comments</h2>
-    {{#each post.comments}}
-    <div class="comment">
-        <p>{{user_comment}}</p>
-        <p>By: {{user.name}} {{format_date createdAt}}</p>
-
-    </div>
-    {{/each}}
+  {{#each post.comments}}
+  <div class="each-comment">
+    <p>{{user_comment}}</p>
+    <div id="postby">{{user.name}} - {{format_date createdAt}}</div>
+  </div>
+  {{/each}}
 </div>
 <script src="../js/single-post.js"></script>
+
+{{#if logged_in}}
+
+<form class="form new-project-form">
+  <div class="single-post">
+    <label for="project-desc">comment:</label>
+    <textarea class="form-input" id="comment-desc" name="comment-desc"></textarea>
+  </div>
+  <div class="form-group">
+    <button type="submit" class="btn btn-primary">Comment Now</button>
+  </div>
+  <div>
+    {{else}}
+    <h3>You must be <a class="link" href="/login">logged in</a> to comment</h3>
+
+    {{/if}}
+  </div>
+</form>
+

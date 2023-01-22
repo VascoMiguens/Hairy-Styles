@@ -1,13 +1,13 @@
-<div>
-    <img src="/temp/{{post.image_name}}" alt="image uploaded by user" class="hair-image">
-    <p>{{post.body}}</p>
-    <p>Salon: {{post.hairdresser.hairdresser_name}}</p>
-    <p>Style: {{post.hairstyle.hairstyle_name}}</p> 
-    <p>Post by: {{post.user.name}} {{format_date post.createdAt}}</p>
-    <p>Updated: {{format_date post.updatedAt}}</p>
-
-
-    
-
-    <hr>
+<h3>Post</h3>
+<div class="partial-posts">
+    <div class="each-partial-post">
+        <img src="/temp/{{post.image_name}}" alt="image uploaded by user" class="hair-image">
+        <div class="post-link">
+            <div id="style"> {{post.hairstyle.hairstyle_name}} @</div>
+            <div id="salon"> {{post.hairdresser.hairdresser_name}}</div>
+            <p>{{post.body}}</p>
+            <div id="postby">{{post.user.name}} - {{format_date createdAt}}</div>
+            <div>Updated - {{format_date post.updatedAt}}</div>
+        </div>
+    </div>
 </div>
