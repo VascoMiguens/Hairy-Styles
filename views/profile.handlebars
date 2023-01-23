@@ -1,24 +1,22 @@
-<div>
-  <div>
-    <h2>{{name}}</h2>
+  <h2>{{name}}</h2>
   {{#if posts.length}}
-  <div>
     <h3>{{format_plural "Post" posts.length}}</h3>
-    {{#each posts as |post|}}
-    <div class="each-hp-post">
-      <div class="profile-post" data-id="/post/{{post.id}}/edit">
-        <img src="/temp/{{image_name}}" alt="image uploaded by user" class="hair-image"/>
-        <a class="post-link" href="/post/{{post.id}}">
-            <div id="style">{{post.hairstyle.hairstyle_name}} @</div>
+    <div class="grid-container">
+      {{#each posts as |post|}}
+        <div class="each-hp-post">
+          <div class="card-image">
+            <img src="/temp/{{image_name}}" alt="image uploaded by user" class="card-image" />
+          </div>
+          <div class="post-link" data-id="{{id}}">
+            <div id="style">{{hairstyle.hairstyle_name}} @</div>
             <div id="salon">{{hairdresser.hairdresser_name}}</div>
             <p>{{body}}</p>
-            <div id="postby">{{user.name}} - {{format_date createdAt}}</div>
-        </a>
-    </div>
+            <div id="postby">{{format_date createdAt}}</div>
+          </div>
+        </div>
     {{/each}}
-  </div>
+    </div>
   {{/if}}
-</div>
 
 
 <script src="./js/profile.js"></script>

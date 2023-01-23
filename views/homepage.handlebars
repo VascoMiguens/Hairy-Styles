@@ -1,25 +1,23 @@
-<section id="homepage">
-    <!-- Google map -->
-</section>
-
-{{!-- {{#if posts.length}} --}}
-
 <h2>Your Hair, Your Way</h2>
 
 <div id="map"></div>
 <h3>Take part in the conversation.</h3>
 <div class="homepage-posts">
     {{#each posts as |post|}}
-
     <div class="each-hp-post">
-        <img src="/temp/{{image_name}}" alt="image uploaded by user" class="hair-image" />
-        <a class="post-link" href="/post/{{post.id}}">
-            <div id="style">{{post.hairstyle.hairstyle_name}} @</div>
-            <div id="salon">{{hairdresser.hairdresser_name}}</div>
-            <p data-location="{{hairdresser.location}}">Location: {{hairdresser.location}}</p>
-            <p>{{body}}</p>
-            <div id="postby">{{user.name}} - {{format_date createdAt}}</div>
-        </a>
+        <div class="card-image">
+            <img src="/temp/{{image_name}}" alt="image uploaded by user" class="card-image" />
+        </div>
+        <div class="post-link" data-id="/post/{{id}}">
+                <div id="style">{{hairstyle.hairstyle_name}} @</div>
+                <div id="salon">{{hairdresser.hairdresser_name}}</div>
+                <div>Location: {{hairdresser.location}}</div>
+                <p>{{body}}</p>
+                <div id="postby">{{user.name}} - {{format_date createdAt}}</div>
+        </div>
+        <div class="card-action">
+            <button data-name="{{hairdresser.hairdresser_name}}" data-location="{{hairdresser.location}}" class="map-button">View on Map</button>
+        </div>
     </div>
 
     {{/each}}
@@ -27,9 +25,10 @@
 
 <script>
     //get all the post elements
-    var postElements = document.querySelectorAll(".each-hp-post");
+    var postElements = document.querySelectorAll(".post-link");
     postElements.forEach(function (element) {
         element.addEventListener("click", function () {
+
             //get the post id from data-id attribute
             var postId = this.dataset.id;
             //redirect to the post page

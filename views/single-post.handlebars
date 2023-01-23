@@ -5,27 +5,22 @@
   {{#each post.comments}}
   <div class="each-comment">
     <p>{{user_comment}}</p>
-    <div id="postby">{{user.name}} - {{format_date createdAt}}</div>
+    <p id="postby">{{user.name}} - {{format_date createdAt}}</p>
   </div>
   {{/each}}
 </div>
-<script src="../js/single-post.js"></script>
 
 {{#if logged_in}}
 
-<form class="form new-project-form">
-  <div class="single-post">
+  <form class="form new-project-form">
     <label for="project-desc">comment:</label>
-    <textarea class="form-input" id="comment-desc" name="comment-desc"></textarea>
-  </div>
-  <div class="form-group">
+    <textarea class="form-input" id="comment-desc" name="comment-desc" style="width: 50%; height: 100px"></textarea>
     <button type="submit" class="btn btn-primary">Comment Now</button>
-  </div>
-  <div>
+  <form>
+    <script type="text/javascript" src="/js/comment-handler.js"></script>
     {{else}}
     <h3>You must be <a class="link" href="/login">logged in</a> to comment</h3>
 
     {{/if}}
-  </div>
-</form>
+<script src="../js/single-post.js"></script>
 

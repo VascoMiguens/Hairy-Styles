@@ -1,22 +1,28 @@
 <h2>Bad Hair Day?</h2>
-
+<div id="map"></div>
+<h4>{{format_plural "Post" posts.length}}:</h4>
+<div class="search-posts">
+    {{#each post}}
+    <div class="each-hp-post">
+        <div class="card-image">
+            <img src="/temp/{{image_name}}" alt="image uploaded by user" class="card-image" />
+        </div>
+        <div class="post-link" data-id="{{id}}">
+            <div id="style">{{hairstyle.hairstyle_name}} @</div>
+            <div id="salon">{{hairdresser.hairdresser_name}}</div>
+            <div>Location: {{hairdresser.location}}</div>
+            <p>{{body}}</p>
+            <div id="postby">{{user.name}} - {{format_date createdAt}}</div>
+        </div>
+        <div class="card-action">
+            <button data-name="{{hairdresser.hairdresser_name}}" data-location="{{hairdresser.location}}" class="map-button">View on Map</button>
+        </div>
+    </div>
+    {{/each}}
+</div>
 <h3>Keep Searching or
     <a class="link" href="/login">LOGIN</a> / <a class="link" href="/signup">SIGN UP</a> to post your own.</p>
 </h3>
+<script type="text/javascript" src="/js/search.js"></script>
 
-<h4>{{format_plural "Post" posts.length}}:</h4>
-<div class="homepage-posts">
-    {{#each post}}
-    <div class="each-hp-post">
-        <img src="/temp/{{image_name}}" alt="image uploaded by user" class="hair-image"/>
-        <a class="post-link" href="/post/{{id}}">
-            <div id="style"> {{hairstyle.hairstyle_name}}</div>
-            <div id="salon">{{hairdresser.hairdresser_name}}</div>
-            <p>{{body}}</p>
-            <div id="postby">{{user.name}} - {{format_date createdAt}}</div>
-        </a>
-    </div>
 
-    {{/each}}
-</div>
-</div>

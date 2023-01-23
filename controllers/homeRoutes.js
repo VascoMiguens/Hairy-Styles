@@ -39,7 +39,6 @@ router.get("/", middlewareHairstyle, async (req, res) => {
 });
 
 router.get("/post/:id", middlewareHairstyle, async (req, res) => {
-  
   try {
     const postData = await Post.findByPk(req.params.id, {
       include: [
@@ -66,14 +65,15 @@ router.get("/post/:id", middlewareHairstyle, async (req, res) => {
     });
 
     if (!postData) {
-      res.redirect(301, '/profile')
-    return;
-  }
+      res.redirect(301, "/profile");
+      return;
+    }
     const post = postData.get({ plain: true });
     console.log(post);
     res.render("single-post", {
       post,
       logged_in: req.session.logged_in,
+      google_api_key: process.env.GOOGLE_API_KEY,
     });
   } catch (err) {
     res.status(500).json(err);
@@ -141,14 +141,10 @@ router.get(
 router.get("/newpost", withAuth, middlewareHairstyle, async (req, res) => {
   try {
     const newHairstyle = await HairStyle.findAll({
-      order: [
-        ['hairstyle_name', 'ASC']
-      ]
+      order: [["hairstyle_name", "ASC"]],
     });
     const newHairdresser = await Hairdresser.findAll({
-      order: [
-        ['hairdresser_name', 'ASC']
-      ]
+      order: [["hairdresser_name", "ASC"]],
     });
     const hairstyle = newHairstyle.map((hairstyle) =>
       hairstyle.get({ plain: true })
@@ -201,6 +197,7 @@ router.get("/search/:id", middlewareHairstyle, async (req, res) => {
     res.render("search", {
       post: search,
       logged_in: req.session.logged_in,
+      google_api_key: process.env.GOOGLE_API_KEY,
     });
   } catch (err) {
     res.status(500).json(err);
@@ -222,7 +219,5 @@ router.get("/signup", middlewareHairstyle, async (req, res) => {
     logged_in: req.session.logged_in,
   });
 });
-
-
 
 module.exports = router;
