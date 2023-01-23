@@ -4,26 +4,27 @@
 
 {{!-- {{#if posts.length}} --}}
 
+<h2>Your Hair, Your Way</h2>
 
-<h2>Trending {{format_plural "Post" posts.length}}</h2>
-    <div id="map"></div>
-<div class="scroller">
-    <div class="homepage-post-container">
-        <div class="homepage-posts">
-            {{#each posts as |post|}}
-            <div class="each-hp-post" data-id="/post/{{post.id}}">
-                    <img src="/temp/{{image_name}}" alt="image uploaded by user" class="hair-image" />
-                    <p>{{body}}</p>
-                    <p>Salon: {{hairdresser.hairdresser_name}}</p>
-                    <p data-location="{{hairdresser.location}}">Location: {{hairdresser.location}}</p>
-                    <p>Style: {{post.hairstyle.hairstyle_name}}</p>
-                    <p>Post by: {{user.name}} {{format_date createdAt}}</p>
-            </div>
+<div id="map"></div>
+<h3>Take part in the conversation.</h3>
+<div class="homepage-posts">
+    {{#each posts as |post|}}
 
-            {{/each}}
-        </div>
+    <div class="each-hp-post">
+        <img src="/temp/{{image_name}}" alt="image uploaded by user" class="hair-image" />
+        <a class="post-link" href="/post/{{post.id}}">
+            <div id="style">{{post.hairstyle.hairstyle_name}} @</div>
+            <div id="salon">{{hairdresser.hairdresser_name}}</div>
+            <p data-location="{{hairdresser.location}}">Location: {{hairdresser.location}}</p>
+            <p>{{body}}</p>
+            <div id="postby">{{user.name}} - {{format_date createdAt}}</div>
+        </a>
     </div>
+
+    {{/each}}
 </div>
+
 <script>
     //get all the post elements
     var postElements = document.querySelectorAll(".each-hp-post");
