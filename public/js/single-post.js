@@ -1,5 +1,5 @@
 var mapElement = document.getElementById("map");
-
+// loads up the google map
 function initMap(location) {
   createMap(mapElement, location);
 }
@@ -15,11 +15,12 @@ document.addEventListener("DOMContentLoaded", function () {
   console.log(hairdresserName);
   createMap(mapElement, location, hairdresserName);
 });
-
+// creates map based on the values read from the event listeners above
 function createMap(mapElement, location, name) {
   var map = new google.maps.Map(mapElement, {
     zoom: 20,
   });
+  //using the google maps API PalcesService to find the hairdressers and place the loaction pin on the map
   var service = new google.maps.places.PlacesService(map);
   var request = {
     query: `${name} in ${location}`,

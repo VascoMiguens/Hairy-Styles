@@ -2,10 +2,10 @@ const { Model, DataTypes } = require('sequelize');
 // import our database connection from config.js
 const sequelize = require('../config/connection');
 
-// Initialize Product model (table) by extending off Sequelize's Model class
+// Initialize Comment model (table) by extending off Sequelize's Model class
 class Comment extends Model {}
 
-// set up fields and rules for Product model
+// set up fields and rules for comment model
 Comment.init(
   {
     id: {
@@ -41,4 +41,5 @@ Comment.init(
   }
 );
 
+// export the model
 module.exports = Comment;

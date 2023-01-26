@@ -52,4 +52,5 @@ Post.init(
   }
 );
 
+// export the model
 module.exports = Post;
