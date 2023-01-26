@@ -53,14 +53,68 @@ function initMap() {
           case error.POSITION_UNAVAILABLE:
             // handle position unavailable
             console.log("Position unavailable");
+            var randomLocation = {
+              lat: 51.509865,
+              lng: -0.118092,
+            };
+            // Create the map with a default location
+            var map = new google.maps.Map(mapElement, {
+              zoom: 10,
+              center: randomLocation,
+            });
+            var marker = new google.maps.Marker({
+              position: { lat: currentPosition.lat, lng: currentPosition.lng },
+              map: map,
+            });
+            marker.addListener("click", function () {
+              map.setZoom(20);
+              map.panTo(marker.getPosition());
+              infowindow.open(map, marker);
+            });
             break;
           case error.TIMEOUT:
             // handle timeout
             console.log("Request timed out");
+            var randomLocation = {
+              lat: 51.509865,
+              lng: -0.118092,
+            };
+            // Create the map with a default location
+            var map = new google.maps.Map(mapElement, {
+              zoom: 10,
+              center: randomLocation,
+            });
+            var marker = new google.maps.Marker({
+              position: { lat: currentPosition.lat, lng: currentPosition.lng },
+              map: map,
+            });
+            marker.addListener("click", function () {
+              map.setZoom(20);
+              map.panTo(marker.getPosition());
+              infowindow.open(map, marker);
+            });
             break;
           case error.UNKNOWN_ERROR:
             // handle unknown error
             console.log("unknown error");
+            var randomLocation = {
+              lat: 51.509865,
+              lng: -0.118092,
+            };
+            // Create the map with a default location
+            var map = new google.maps.Map(mapElement, {
+              zoom: 10,
+              center: randomLocation,
+            });
+            var marker = new google.maps.Marker({
+              position: { lat: currentPosition.lat, lng: currentPosition.lng },
+              map: map,
+            });
+            marker.addListener("click", function () {
+              map.setZoom(20);
+              map.panTo(marker.getPosition());
+              infowindow.open(map, marker);
+            });
             break;
         }
       }
