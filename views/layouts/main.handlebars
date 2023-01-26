@@ -21,6 +21,7 @@
         <ul>
           <li>
            <label for="search"></label>
+          {{!-- Select search menu containing all database hairstyles --}}
             <select id="search" name="hairstyle">
               {{#each hairstyles}}
               <option value="{{id}}">{{hairstyle_name}}</option>
@@ -68,8 +69,10 @@
 
 </body>
 <script src="/js/hairystyles.js"></script>
+{{!-- Script referring to secure api key in .env file --}}
 <script src="https://maps.googleapis.com/maps/api/js?key={{google_api_key}}&callback=initMap&libraries=places&v=weekly" defer></script>
 <script>
+//Listens for hairstyle from search and relates to hairstyle ID in database
   document.getElementById("searchButton").addEventListener("click", function () {
     const hairstyleId = document.getElementById("search").value;
     window.location.href = `/search/${hairstyleId}`;

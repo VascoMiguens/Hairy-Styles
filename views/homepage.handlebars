@@ -4,10 +4,10 @@
 
 {{!-- {{#if posts.length}} --}}
 
-<h2>Your Hair, Your Way</h2>
+<h1>Your Hair, Your Way</h1>
 
 <div id="map"></div>
-<h3>Take part in the conversation.</h3>
+<h2>Take part in the conversation.</h2>
 <div class="homepage-posts">
     {{#each posts as |post|}}
 
@@ -26,13 +26,13 @@
 </div>
 
 <script>
-    //get all the post elements
+    //Gets all the post elements
     var postElements = document.querySelectorAll(".each-hp-post");
     postElements.forEach(function (element) {
         element.addEventListener("click", function () {
-            //get the post id from data-id attribute
+            //Gets the post id from data-id attribute
             var postId = this.dataset.id;
-            //redirect to the post page
+            //Redirects to the post page
             window.location.href = postId;
         });
     });
