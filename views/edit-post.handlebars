@@ -1,13 +1,13 @@
 //Gives option to edit post when logged in
 {{#if isOwner}}
 <div>
-    <img src="/temp/{{image_name}}" alt="image uploaded by user" class="hair-image">
+    <div class="image-container">
+        <img src="/temp/{{image_name}}" alt="image uploaded by user" class="edit-image">
+    </div>
     <form class="form update-project-form">
-        <div class="form-group">
-            <label for="project-desc">content:</label>
-            <textarea class="form-input" id="post-desc-update" name="post-desc-update">{{body}}</textarea>
-        </div>
-        <div class="form-group">
+        <label for="project-desc">content:</label>
+        <textarea class="form-input" id="post-desc-update" name="post-desc-update">{{body}}</textarea>
+        <div class="form-buttons">
             <button type="submit" class="btn btn-sm btn-danger update-post" data-id="{{id}}">UPDATE</button>
             <button class="btn btn-sm btn-danger delete-post" data-id="{{id}}">DELETE</button>
         </div>

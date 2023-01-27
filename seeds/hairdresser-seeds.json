@@ -1,15 +1,27 @@
 [
   {
-    "hairdresser_name": "Hair",
-    "location": "NE35LX"
+    "hairdresser_name": "Dolled Up",
+    "location": "London"
   },
   {
-    "hairdresser_name": "Fusion Hair Studio",
-    "location": "BS207PX"
+    "hairdresser_name": "Michael Van Clarke",
+    "location": "London"
   },
   {
-    "hairdresser_name": "Burties's Barber's",
-    "location": "OX278AF"
+    "hairdresser_name": "Larry King",
+    "location": "London"
+  },
+  {
+    "hairdresser_name": "Percy & Reed Salon",
+    "location": "London"
+  },
+  {
+    "hairdresser_name": "George Northwood Salon",
+    "location": "London"
+  },
+  {
+    "hairdresser_name": "Josh Wood",
+    "location": "London"
   },
   {
     "hairdresser_name": "Aaron Russel",
@@ -32,59 +44,107 @@
     "location": "London"
   },
   {
-    "hairdresser_name": "The Mane Event",
-    "location": "Manchester"
-  },
-  {
-    "hairdresser_name": "Cutting Edge Hair Design",
+    "hairdresser_name": "Regis Hair Salon",
     "location": "Birmingham"
   },
   {
-    "hairdresser_name": "Blonde Ambition",
+    "hairdresser_name": "James Bushell Hair Birmingham",
     "location": "Birmingham"
   },
   {
-    "hairdresser_name": "Shear Perfection",
+    "hairdresser_name": "Cora Hair",
     "location": "Birmingham"
   },
   {
-    "hairdresser_name": "The Styling Station",
+    "hairdresser_name": "Hush Hair & Beauty",
     "location": "Birmingham"
   },
   {
-    "hairdresser_name": "The Hair Spa",
+    "hairdresser_name": "Benjamin Ryan Hair",
     "location": "Birmingham"
   },
   {
-    "hairdresser_name": "Locks of Luxury",
+    "hairdresser_name": "Hazel & Haydn Hairdressing",
     "location": "Birmingham"
   },
   {
-    "hairdresser_name": "Hair Couture",
+    "hairdresser_name": "Urban Roots",
     "location": "Birmingham"
   },
   {
-    "hairdresser_name": "Tress-ed to Impress",
+    "hairdresser_name": "Nicky Clarke",
     "location": "Birmingham"
   },
   {
-    "hairdresser_name": "The Mane Attraction",
+    "hairdresser_name": "Christodoulous Hair and Beauty",
     "location": "Birmingham"
   },
   {
-    "hairdresser_name": "Crowning Glory",
+    "hairdresser_name": "Pickles & co",
     "location": "Birmingham"
   },
   {
-    "hairdresser_name": "Shear Genius",
+    "hairdresser_name": "Tandis Hair and Beauty Salon",
     "location": "Birmingham"
   },
   {
-    "hairdresser_name": "The Hair Haven",
+    "hairdresser_name": "Francesco Group Birmingham Academy",
     "location": "Birmingham"
   },
   {
-    "hairdresser_name": "The Mane Master",
+    "hairdresser_name": "Harris Gibbs Hair Shop",
     "location": "Birmingham"
+  },
+  {
+    "hairdresser_name": "Blushes Solihull",
+    "location": "leamington spa"
+  },
+  {
+    "hairdresser_name": "TONI&GUY",
+    "location": "leamington spa"
+  },
+  {
+    "hairdresser_name": "Rose Gold Salon",
+    "location": "leamington spa"
+  },
+  {
+    "hairdresser_name": "Indigo Hair Ltd",
+    "location": "leamington spa"
+  },
+  {
+    "hairdresser_name": "Geiko",
+    "location": "leamington spa"
+  },
+  {
+    "hairdresser_name": "Pure Hair",
+    "location": "leamington spa"
+  },
+  {
+    "hairdresser_name": "Alexander James Hairdressing",
+    "location": "leamington spa"
+  },
+  {
+    "hairdresser_name": "Blaze",
+    "location": "leamington spa"
+  },
+  {
+    "hairdresser_name": "Hair @ 51",
+    "location": "leamington spa"
+  },
+  {
+    "hairdresser_name": "Roots Professional Hairdressing",
+    "location": "leamington spa"
+  },
+  {
+    "hairdresser_name": "Edith's Hair XPress",
+    "location": "leamington spa"
+  },
+  {
+    "hairdresser_name": "Cutters",
+    "location": "leamington spa"
+  },
+  {
+    "hairdresser_name": "Saul & co.",
+    "location": "leamington spa"
   }
 ]

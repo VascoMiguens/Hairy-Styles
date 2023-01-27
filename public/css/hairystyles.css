@@ -1,17 +1,18 @@
 :root {
   --orange1: #e44d55b6;
   --orange2: #f4a449af;
-  --blue: #4759CC;
-  --purple: #4723B6;
-  --lightblue: #3088E3;
+  --blue: #4759cc;
+  --purple: #4723b6;
+  --lightblue: #3088e3;
 }
 
 body {
-  font-family: 'Arial', sans-serif;
+  font-family: "Arial", sans-serif;
   color: white;
   line-height: 1.5;
   margin: 1px;
   /*Ensure background image fills different screens without moving or stretching*/
+  padding: 0;
   background: url(../images/background.png) no-repeat;
   background-color: var(--purple);
   background-size: 100% auto;
@@ -20,13 +21,14 @@ body {
   background-attachment: local, scroll;
 }
 
+
 h1 {
   font-family: 'Montserrat', sans-serif;
   font-size: 80px;
   text-transform: uppercase;
   text-align: center;
   margin: auto;
-  filter: drop-shadow(0 .5rem 1.2rem rgba(0, 0, 0, 0.4))
+  filter: drop-shadow(0 0.5rem 1.2rem rgba(0, 0, 0, 0.4));
 }
 
 h2 {
@@ -36,17 +38,19 @@ h2 {
   font-size: 30px;
   font-weight: 500;
   margin: 20px;
-  filter: drop-shadow(0 .5rem 1.2rem rgba(0, 0, 0, 0.8))
+  filter: drop-shadow(0 0.5rem 1.2rem rgba(0, 0, 0, 0.8));
 }
+
 
 h3 {
   font-family: 'Arial', sans-serif;
+
   text-align: center;
   text-transform: uppercase;
   font-size: 20px;
   font-weight: 700;
   margin: 20px;
-  filter: drop-shadow(0 .5rem 1.2rem rgba(0, 0, 0, 0.8))
+  filter: drop-shadow(0 0.5rem 1.2rem rgba(0, 0, 0, 0.8));
 }
 
 .contact {
@@ -133,15 +137,16 @@ header nav ul li select {
   border: 1em;
   width: 200px;
   height: 24px;
-  font-family: 'Arial', sans-serif;
+  font-family: "Arial", sans-serif;
   font-size: 12px;
   text-transform: uppercase;
   cursor: pointer;
 }
 
 button {
+  width: 100px;
   text-transform: uppercase;
-  font-family: 'Arial', sans-serif;
+  font-family: "Arial", sans-serif;
   font-size: 12px;
   border-style: solid;
   color: white;
@@ -159,11 +164,10 @@ input {
 textarea {
   border-radius: 8px;
   margin-bottom: 2em;
-  font-family: 'Montserrat', sans-serif;
+  font-family: "Montserrat", sans-serif;
   font-size: 12px;
   color: var(--orange1);
   height: 100px;
-
 }
 
 button:hover {
@@ -177,12 +181,12 @@ button:hover {
 form {
   display: flex;
   flex-wrap: wrap;
-  width:400px;
+  width: 400px;
   height: auto;
   flex-direction: column;
   margin: auto;
   justify-content: space-between;
-  font-family: 'Arial', sans-serif;
+  font-family: "Arial", sans-serif;
   text-transform: uppercase;
 }
 
@@ -208,7 +212,7 @@ form select {
   border: 1em;
   width: 400px;
   height: 24px;
-  font-family: 'Arial', sans-serif;
+  font-family: "Arial", sans-serif;
   font-size: 12px;
   text-transform: uppercase;
   cursor: pointer;
@@ -225,18 +229,41 @@ form select {
 
 .partial-posts {
   display: flex;
+  width: 90%;
+  margin: 0 auto;
 }
 
-.each-partial-post {
+.partial-post {
   background: white;
   display: flex;
-  align-items: stretch;
-  width: 100%;
-  padding: .75rem 1.25rem;
-  margin: 8px;
+  align-items: flex-start;
+  justify-content: center;
+  align-items: center;
+  width: 90%;
+  margin: 0 auto;
+  gap: 10px;
+  padding: 10px;
+  margin-bottom: 20px;
   border-radius: 8px;
   border: 1px solid #eaeaea;
-  box-shadow: 0 .5rem 1.2rem rgba(0, 0, 0, .6);
+  box-shadow: 0 0.5rem 1.2rem rgba(0, 0, 0, 0.6);
+}
+
+.partial-image {
+  width: 30%;
+  height: 100%;
+}
+
+.partial-image img {
+  width: 100%;
+}
+
+.partial-link {
+  width: 70%;
+  height: 100%;
+  font-family: "Montserrat", sans-serif;
+  text-decoration: none;
+  color: black;
 }
 
 .homepage-posts {
@@ -245,29 +272,62 @@ form select {
   gap: 1rem;
 }
 
-.each-hp-post {
-  background: white;
-  display: flex;
-  flex-wrap: wrap;
-  width: auto;
-  padding: .75rem 1.25rem;
-  margin: 8px;
-  border-radius: 8px;
-  border: 1px solid #eaeaea;
-  box-shadow: 0 .5rem 1.2rem rgba(0, 0, 0, .6);
+.search-posts {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(380px, 1fr));
+  gap: 1rem;
 }
 
-img {
-  margin: .75em;
-  max-width: 100px;
-  object-fit: cover;
-  /*images to fit the given dimension keeping aspect ratio*/
-  overflow: hidden;
-  justify-content: center;
+.each-hp-post {
+  position: relative;
+  background: white;
+  display: flex;
+  flex-wrap: nowrap;
+  flex-direction: column;
+  max-width: 300px;
+  word-break: break-all;
+  padding: 0.75rem 1.25rem;
+  margin: 20px auto;
+  border-radius: 8px;
+  border: 1px solid #eaeaea;
+  box-shadow: 0 0.5rem 1.2rem rgba(0, 0, 0, 0.6);
+}
+
+.post-link {
+  margin-top: 10px;
+  width: 100%;
+  flex: 1;
+  font-family: "Montserrat", sans-serif;
+  text-decoration: none;
+  color: black;
+}
+
+.post-link:hover {
+  cursor: pointer;
+  text-decoration: underline;
+}
+
+.card-image {
+  width: 80%;
+  height: 200px;
+  margin: 0 auto;
+}
+
+.card-image img {
+  width: 100%;
+}
+
+.card-action {
+  width: 100%;
+  padding: 10px 0;
+}
+
+.map-button {
+  height: 20px;
 }
 
 p {
-  margin: .5em;
+  margin: 0.5em;
 }
 
 .link {
@@ -280,23 +340,9 @@ p {
   text-decoration: underline;
 }
 
-.post-link {
-  display: flex;
-  flex-direction: column;
-  font-family: 'Montserrat', sans-serif;
-  text-decoration: none;
-  margin: 10px;
-  color: black;
-}
-
-.post-link:hover {
-  cursor: pointer;
-  text-decoration: underline;
-}
-
 #salon {
   text-transform: uppercase;
-  font-family: 'Montserrat', sans-serif;
+  font-family: "Montserrat", sans-serif;
   font-weight: 700;
   text-decoration: underline;
 }
@@ -311,9 +357,12 @@ p {
 }
 
 .comments {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
+  display: flex;
+  flex-direction: column;
   gap: 1rem;
+  width: 80%;
+  margin: 0 auto;
+  margin-bottom: 20px;
 }
 
 .each-comment {
@@ -321,20 +370,61 @@ p {
   flex-direction: column;
   justify-content: space-around;
   background: rgba(255, 255, 255, 0.55);
-  padding: .75rem 1.25rem;
+  padding: 0.75rem 1.25rem;
   margin: 8px;
   border-radius: 8px;
   border: 1px solid #eaeaea;
   color: black;
 }
 
+.new-project-form {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 5px;
+}
+
 .contact {
   text-transform: uppercase;
-  font-family: 'Montserrat', sans-serif;
+  font-family: "Montserrat", sans-serif;
 }
 
 .contact a {
-    text-decoration: none;
-    color: white;
-    font-weight: 700;
+  text-decoration: none;
+  color: white;
+  font-weight: 700;
+}
+
+/* PROFILE */
+
+.grid-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+  grid-gap: 16px;
+  margin: 50px 20px;
+  padding: 20px;
+  background: white;
+  border-radius: 8px;
+  border: 1px solid #eaeaea;
+  box-shadow: 0 0.5rem 1.2rem rgba(0, 0, 0, 0.6);
+}
+
+/* EDIT PAGE */
+.image-container {
+  width: 90%;
+  height: 400px;
+  margin: 20px auto;
+}
+
+.image-container img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+
+.update-project-form {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
 }

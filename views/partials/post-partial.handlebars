@@ -1,10 +1,13 @@
 <h2>Post</h2>
+<div id="map"></div>
 <div class="partial-posts">
-    <div class="each-partial-post">
-        <img src="/temp/{{post.image_name}}" alt="image uploaded by user" class="hair-image">
-        <div class="post-link">
+    <div class="partial-post">
+        <div class="partial-image">
+            <img src="/temp/{{post.image_name}}" alt="image uploaded by user" class="hair-image">
+        </div>
+        <div class="partial-link">
             <div id="style"> {{post.hairstyle.hairstyle_name}} @</div>
-            <div id="salon"> {{post.hairdresser.hairdresser_name}}</div>
+            <div data-location="{{post.hairdresser.location}}" data-name="{{post.hairdresser.hairdresser_name}}"  id="salon"> {{post.hairdresser.hairdresser_name}}</div>
             <p>{{post.body}}</p>
             <div id="postby">{{post.user.name}} - {{format_date createdAt}}</div>
             <div>Updated - {{format_date post.updatedAt}}</div>
