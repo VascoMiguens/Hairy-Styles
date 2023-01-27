@@ -1,4 +1,4 @@
-<h3>Get Involved</h3>
+<h2>Get Involved</h2>
 <div class="new-post">
     <form action="/api/posts/newreview" method="POST" enctype="multipart/form-data">
         <input type="file" id="image-input" name="image" />
@@ -38,6 +38,7 @@
 </div>
 
 <script>
+    //Listens for hairdresser and shows input form when input is "other"
     document.getElementById("hairdresser-select").addEventListener("change", function () {
         if (this.value === "other") {
             document.getElementById("hairdresser-other").style.display = "block";
@@ -45,6 +46,7 @@
             document.getElementById("hairdresser-other").style.display = "none";
         }
     });
+    //Listens for hairstyle and shows input form when input is "other"
     document.getElementById("hairstyle-select").addEventListener("change", function () {
         if (this.value === "other") {
             document.getElementById("hairstyle-other").style.display = "block";

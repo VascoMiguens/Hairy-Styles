@@ -1,6 +1,6 @@
 {{> post-partial post=post}}
 
-<h3>Comments</h3>
+<h2>Comments</h2>
 <div class="comments">
   {{#each post.comments}}
   <div class="each-comment">
@@ -19,7 +19,7 @@
   <form>
     <script type="text/javascript" src="/js/comment-handler.js"></script>
     {{else}}
-    <h3>You must be <a class="link" href="/login">logged in</a> to comment</h3>
+    <h2>You must be <a class="link" href="/login">logged in</a> to comment</h2>
 
     {{/if}}
 <script src="/js/single-post.js"></script>

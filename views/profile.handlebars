@@ -1,6 +1,7 @@
-  <h2>{{name}}</h2>
+
+  <h1>{{name}}</h1>
   {{#if posts.length}}
-    <h3>{{format_plural "Post" posts.length}}</h3>
+    <h2>{{format_plural "Post" posts.length}}</h2>
     <div class="grid-container">
       {{#each posts as |post|}}
         <div class="each-hp-post">
