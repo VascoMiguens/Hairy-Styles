@@ -1,3 +1,4 @@
+//Gives option to edit post when logged in
 {{#if isOwner}}
 <div>
     <div class="image-container">
@@ -12,8 +13,9 @@
         </div>
     </form>
 </div>
+//If user is not logged in, the following text is shown:
 {{else}}
-<h3>You are not the owner of this post:</h3>
+<h2>You are not the owner of this post:</h2>
 <a href="/profile">Back To Your Profile</a>
 {{/if}}
 

@@ -10,7 +10,8 @@ body {
   font-family: "Arial", sans-serif;
   color: white;
   line-height: 1.5;
-  margin: 0;
+  margin: 1px;
+  /*Ensure background image fills different screens without moving or stretching*/
   padding: 0;
   background: url(../images/background.png) no-repeat;
   background-color: var(--purple);
@@ -20,8 +21,9 @@ body {
   background-attachment: local, scroll;
 }
 
-h2 {
-  font-family: "Montserrat", sans-serif;
+
+h1 {
+  font-family: 'Montserrat', sans-serif;
   font-size: 80px;
   text-transform: uppercase;
   text-align: center;
@@ -29,8 +31,8 @@ h2 {
   filter: drop-shadow(0 0.5rem 1.2rem rgba(0, 0, 0, 0.4));
 }
 
-h3 {
-  font-family: "Montserrat", sans-serif;
+h2 {
+  font-family: 'Montserrat', sans-serif;
   text-align: center;
   text-transform: uppercase;
   font-size: 30px;
@@ -39,8 +41,10 @@ h3 {
   filter: drop-shadow(0 0.5rem 1.2rem rgba(0, 0, 0, 0.8));
 }
 
-h4 {
-  font-family: "Arial", sans-serif;
+
+h3 {
+  font-family: 'Arial', sans-serif;
+
   text-align: center;
   text-transform: uppercase;
   font-size: 20px;
@@ -71,6 +75,7 @@ header nav a:hover {
   text-decoration: underline;
 }
 
+/*Added gradient on header to complement background*/
 .header-inner {
   background: linear-gradient(-45deg, var(--orange1), var(--orange2));
   background-size: 400% 400%;
@@ -109,6 +114,7 @@ header nav ul {
   padding: 1em 1.25em;
 }
 
+/*Created responsive header*/
 @media (min-width: 600px) {
   header nav ul {
     display: flex;
@@ -164,7 +170,7 @@ textarea {
   height: 100px;
 }
 
-Button:hover {
+button:hover {
   cursor: pointer;
 }
 
@@ -212,6 +218,7 @@ form select {
   cursor: pointer;
 }
 
+/*Google Maps API styling*/
 #map {
   margin: auto;
   width: auto;
