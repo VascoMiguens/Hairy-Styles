@@ -68,10 +68,6 @@
   {{/if}}
 
 </body>
-  {{!-- Script referring to secure api key in .env file --}}
-  <script async defer
-    src="https://maps.googleapis.com/maps/api/js?key={{google_api_key}}&callback=initMap&libraries=places"></script>
-    <script src="/js/hairystyles.js"></script>
 <script>
   //Listens for hairstyle from search and relates to hairstyle ID in database
     document.getElementById("searchButton").addEventListener("click", function () {
