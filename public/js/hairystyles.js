@@ -23,7 +23,6 @@ function initMap() {
         marker.addListener("click", function () {
           map.setZoom(20);
           map.panTo(marker.getPosition());
-          infowindow.open(map, marker);
         });
       },
       function (error) {
@@ -41,13 +40,15 @@ function initMap() {
               center: randomLocation,
             });
             var marker = new google.maps.Marker({
-              position: { lat: currentPosition.lat, lng: currentPosition.lng },
+              position: {
+                lat: currentPosition.lat,
+                lng: currentPosition.lng,
+              },
               map: map,
             });
             marker.addListener("click", function () {
               map.setZoom(20);
               map.panTo(marker.getPosition());
-              infowindow.open(map, marker);
             });
             break;
           case error.POSITION_UNAVAILABLE:
@@ -63,13 +64,15 @@ function initMap() {
               center: randomLocation,
             });
             var marker = new google.maps.Marker({
-              position: { lat: currentPosition.lat, lng: currentPosition.lng },
+              position: {
+                lat: currentPosition.lat,
+                lng: currentPosition.lng,
+              },
               map: map,
             });
             marker.addListener("click", function () {
               map.setZoom(20);
               map.panTo(marker.getPosition());
-              infowindow.open(map, marker);
             });
             break;
           case error.TIMEOUT:
@@ -85,13 +88,15 @@ function initMap() {
               center: randomLocation,
             });
             var marker = new google.maps.Marker({
-              position: { lat: currentPosition.lat, lng: currentPosition.lng },
+              position: {
+                lat: currentPosition.lat,
+                lng: currentPosition.lng,
+              },
               map: map,
             });
             marker.addListener("click", function () {
               map.setZoom(20);
               map.panTo(marker.getPosition());
-              infowindow.open(map, marker);
             });
             break;
           case error.UNKNOWN_ERROR:
@@ -107,13 +112,15 @@ function initMap() {
               center: randomLocation,
             });
             var marker = new google.maps.Marker({
-              position: { lat: currentPosition.lat, lng: currentPosition.lng },
+              position: {
+                lat: currentPosition.lat,
+                lng: currentPosition.lng,
+              },
               map: map,
             });
             marker.addListener("click", function () {
               map.setZoom(20);
               map.panTo(marker.getPosition());
-              infowindow.open(map, marker);
             });
             break;
         }
